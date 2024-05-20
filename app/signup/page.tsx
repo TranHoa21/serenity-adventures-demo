@@ -52,14 +52,9 @@ const Signup = () => {
             return;
         }
 
-<<<<<<< HEAD
-const userData = { name, email, password };
-    console.log('Sending data to server:', userData);
-=======
         const userData = { name, email, password };
         console.log('Sending data to server:', userData);
 
->>>>>>> 9bcf014 (update client)
         axios.post('https://serenity-adventures-demo.onrender.com/api/v1/auth/signup', { name, email, password })
             .then(response => {
                 const { success, message, user } = response.data;
