@@ -1,0 +1,124 @@
+
+
+.homepage{
+    margin-top: -70px;
+    width:auto;
+    height:700px;
+    background-image: linear-gradient(0,rgba(0, 0, 0,1), rgba(255, 255, 255, 0)),
+     url('/img/7-Facts-That-Will-Change-What-You-Think-About-Rwanda.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    .box1{
+        display:flex;
+        justify-content: space-between;
+        height: 600px;
+        
+      .item{
+        padding-top: 10%;
+        width:55%;
+        margin-left: 5%;
+        .slogan{
+          text-align: start !important;
+          color:#e2e2e2;
+  
+        }
+        .slc{
+          
+          color:#e2e2e2;
+        }
+        .content{
+          
+          color:#e2e2e2;
+        }
+        .btn{
+          
+          padding:10px;
+          border:none;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển đổi màu nền và shadow */
+         .link{
+         text-decoration: none;
+         color: black;
+        }
+        }
+        .btn:hover{
+          background-color: #45a049; /* Màu nền mới khi di chuột qua */
+          box-shadow: 0 0 10px #45a049, 0 0 20px #45a049, 0 0 30px #45a049;
+        }
+      }
+      .item2{
+        padding-top: 10%;
+        width:40%;
+        margin-left: 5%;
+      }
+    }
+
+}
+.design{
+  display:flex;
+    width:auto;
+    height:max-content;
+    background-color: black;
+    padding-top: 8%;
+}
+
+@media (max-width: 767px){
+  .homepage{
+    margin-top: -70px;
+    width:auto;
+    height:max-content;
+    background-image: linear-gradient(0,rgba(0, 0, 0,1), rgba(255, 255, 255, 0)),
+     url('/img/mobile-background1.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    .box1{
+      display:block;
+      height:max-content;
+      .item{
+        padding-top: 30%;
+        margin-left: 5%;
+        width:90%;
+        .slogan{
+          font-size: 90%;
+          color:#e2e2e2;
+  
+        }
+        .slc{
+          font-size: 90%;
+          color:#e2e2e2;
+        }
+        .content{
+          font-size: 70%;
+          color:#e2e2e2;
+        }
+        .btn{
+          
+          padding:10px;
+          border:none;
+          border-radius: 20px;
+          cursor: pointer;
+          transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển đổi màu nền và shadow */
+  
+        }
+        .btn:hover{
+          background-color: #45a049; /* Màu nền mới khi di chuột qua */
+          box-shadow: 0 0 10px #45a049, 0 0 20px #45a049, 0 0 30px #45a049;
+        }
+      }
+      .item2{
+        padding-top: 10%;
+        width:40%;
+        margin-left: 5%;
+      }
+
+    }
+  }
+  .design{
+    display:flex;
+      width:auto;
+      height:max-content;
+      background-color: black;
+      padding-top: 8%;
+  }
+}

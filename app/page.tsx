@@ -1,95 +1,35 @@
 import Image from "next/image";
-import styles from "./page.module.css";
+import styles from "@/app/styles/home/page.module.scss";
+import Slider1 from "@/app/components/home/slider1";
+import Intro from "@/app/components/home/introduce";
+import Popular from "@/app/components/home/popularTours";
+import Chooes from "@/app/components/home/chooseUs";
+import Destination from "@/app/components/home/destination";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    < >
+      <div className={styles.homepage}>
+        <div className={styles.box1}>
+          <div className={styles.item}>
+            <h1 className={styles.slogan}>ADVENTURE, TRANQUILITY </h1>
+            <h4 className={styles.slc}>Explore the Wild World with Serenity Adventures</h4>
+            <p className={styles.content}>"Serenity Adventures is a premier travel planning agency that specializes in curating unforgettable journeys for those seeking unique and immersive travel experiences. Our dedicated team is committed to crafting exhilarating adventures and cultural explorations that leave a lasting impression. We pride ourselves on creating tailor-made itineraries that cater to individual preferences, ensuring that each trip is personalized to perfection. With Serenity Adventures, you can embark on a remarkable journey and create cherished memories that will stay with you forever."
+            </p>
+            <button className={styles.btn}><Link className={styles.link} href="/about-us">REGISTER NOW</Link></button>
+          </div>
+          <div className={styles.item2} >
+            <Slider1 />
+          </div>
         </div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className={styles.design}>
+        <Intro />
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      <Popular />
+      <Chooes />
+      <Destination />
+    </>
   );
 }

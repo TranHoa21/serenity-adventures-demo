@@ -1,0 +1,99 @@
+
+.h-title{
+    margin: 2% 0;
+    text-align: center;
+}
+.box-container{
+    display:flex;
+    .row{
+        margin: 0;
+        padding: 0;
+        display:flex;
+        .content{
+            margin-left: 5% ;
+            .img-tour{
+                margin-left: 10%;
+                width:70%;
+                height:auto;
+                margin-bottom: 2%;
+            }
+            #content-container{
+                h1{
+                    text-align: start;
+                }
+            }
+            .interact{
+                display:flex;
+                //width:;
+                .comments{
+                    li{
+                        margin: 5%;
+                        display:flex;
+                        list-style: none;
+                        .avatar{
+                            width:34px;
+                            height:34px;
+                            border-radius: 50%;
+                            object-fit: cover;
+    
+                        }
+                        .comment-content{
+                            margin-left: 5px;
+                            background-color: rgb(201, 201, 201);
+                            border-radius: 20px;
+                            padding: 5px 8px;
+                            h5{
+                                padding-bottom: 3px;
+                                margin-bottom: 0;
+                            }
+                        }
+                        .btn-up-de{
+                            margin: 3% 1% 0 1%;
+                            border-radius: 20px;
+                            border: 1px solid rgb(177, 177, 177);
+                            height: 25%;
+                            width: 20%
+                        }
+                    }
+                    textarea{
+                        width:90%;
+                        border: 1px solid rgb(172, 172, 172);
+                    }
+                    .sub-comment{
+                        display:flex;
+                        width: 600px;
+                        button{
+                            margin-left: 2%;
+                            border: none;
+    
+                        }
+                    }
+                }
+                .likes{
+                    display:flex;
+                    .comment-icon{
+                        width: 20px;
+                        height: 20px;
+                        margin: 5px 5px 5px 5px;
+                    }
+                    .like-icon{
+                        width: 20px;
+                        height: 20px;
+                        margin: 2px 5px 5px 5px;
+                    }
+                    button{
+                        border: none;
+                        background-color: white;
+                        display:flex;
+                    }
+                }
+            }
+        }
+    }
+    
+    
+
+}
+
+
+

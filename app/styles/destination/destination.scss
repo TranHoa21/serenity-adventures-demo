@@ -1,0 +1,48 @@
+.destination{
+    margin-bottom: 2%;
+    .title{
+        margin: 5% ;
+    }
+    .row{
+        width:100%;
+        margin:0;
+        display:flex;
+        .col-sm-5{
+            margin-left:5% ;
+            padding: 0;
+        }
+        .box2{
+         margin-top: 2%;
+         border: 1px solid rgb(158, 158, 158);
+         height: max-content;
+         border-radius: 20px;
+         .box3{
+            padding: 2%;
+            .item{ 
+                display:flex;
+                margin-top: 6%;
+                .icon{
+                    width:30px;
+                    height:30px;
+                    margin: 0 5px 0;
+                }
+                b{
+                    width:40%;
+                }
+            }
+            .setItem{
+                border-bottom: 1px solid rgb(158, 158, 158);
+            }
+            
+         }
+        }
+    }
+    .Content{
+        width:90%;
+        margin-left: auto;
+        margin-right: auto;
+        .title{
+            text-align: center;
+        }
+    }
+}
