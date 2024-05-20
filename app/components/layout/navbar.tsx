@@ -10,11 +10,14 @@ import chat from "@/public/img/communication_4041949.png";
 import notification from "@/public/img/bell_1827312.png";
 import Conversations from "@/components/notification/listNotification"
 import { RootState } from "@/app/store/store";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import Cookies from 'js-cookie';
+
 const SideNav = () => {
 
     const pathname = usePathname();
-    const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+    const isLoggedIn = Cookies.get('isLoggedIn');
+    const isLoggedInBoolean = isLoggedIn === 'true';
     const client = useSelector((state: RootState) => state.mess.messages);
     const hasNewNotification = useSelector((state: RootState) => state.mess.status);
 
@@ -93,7 +96,7 @@ const SideNav = () => {
                 </div>
                 <div className="item menu end ">
 
-                    {isLoggedIn && (
+                    {isLoggedInBoolean && (
                         <Nav.Link className={`menu-item  ${pathname === '/chat' ? 'active' : ''}`} href="/chat">
                             <img className="icon" src={chat.src} />
                             {!client && <span className="new-notification'"></span>}
@@ -101,7 +104,7 @@ const SideNav = () => {
 
 
                     )}
-                    {isLoggedIn && (
+                    {isLoggedInBoolean && (
                         <NavDropdown className="chat-nav-dropdown menu-item " title={<div>
                             <img className="icon" src={notification.src} />
                             {!hasNewNotification && <span className="new-notification'"></span>}

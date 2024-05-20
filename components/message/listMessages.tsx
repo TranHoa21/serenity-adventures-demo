@@ -8,7 +8,6 @@ import Message from "./message";
 import useListenMessages from "@/hooks/useListenMessages";
 import { RootState } from '@/app/store/store';
 import "@/app/styles/components/messageinput.scss"
-import { io } from "socket.io-client";
 
 
 const ListMessages = () => {

@@ -1,26 +1,25 @@
 // Header.tsx
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import Button from '@/app/components/layout/button';
 import User from '@/app/components/layout/user';
 import icons from '@/app/components/layout/icons';
 import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams, useRouter } from 'next/navigation';
-import menuManage from '@/app/components/layout/menuManage';
 import '@/app/styles/layout/header.scss';
 import { RootState } from '@/app/store/store';
-import { loginSuccess, logout } from '@/app/store/actions/authActions';
-const { AiOutlinePlusCircle, AiOutlineLogout, BsChevronDown } = icons;
-import { setUser } from "@/app/store/actions/userActions"
+import { logout } from '@/app/store/actions/authActions';
+const { AiOutlineLogout } = icons;
 import { NavDropdown } from 'react-bootstrap';
+import Cookies from 'js-cookie';
 
 const Header: React.FC = () => {
     const router = useRouter();
     const searchParams = useSearchParams()
     const headerRef = useRef<HTMLDivElement>(null);
     const [isShowMenu, setIsShowMenu] = useState(false);
-    const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
+    const isLoggedIn = Cookies.get('isLoggedIn');
+    const isLoggedInBoolean = isLoggedIn === 'true';
     const user = useSelector((state: RootState) => state.user);
     const dispatch = useDispatch();
     const userId = user.id;
@@ -34,10 +33,10 @@ const Header: React.FC = () => {
     }, [router]);
 
     useEffect(() => {
-        if (isLoggedIn) {
+        if (isLoggedInBoolean) {
             setShowAdminView(user.role === true);
         }
-    }, [isLoggedIn, user.role]);
+    }, [isLoggedInBoolean, user.role]);
 
     const handleLogout = useCallback(() => {
         dispatch(logout());
@@ -63,7 +62,7 @@ const Header: React.FC = () => {
                 {isLoggedIn && (
 
 
-                    <NavDropdown className="second-nav-dropdown" title={<User isLoggedIn={isLoggedIn} user={user} />} >
+                    <NavDropdown className="second-nav-dropdown" title={<User isLoggedIn={isLoggedInBoolean} user={user} />} >
                         <NavDropdown.Item href={`/user-view/${userId}`}>
                             xem chi tiết
                         </NavDropdown.Item>
