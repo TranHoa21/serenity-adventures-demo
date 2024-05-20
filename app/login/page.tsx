@@ -39,16 +39,11 @@ const Login = () => {
             dispatch(setUser(user));
             console.log("check", role, user);
             if (role === false) {
-                localStorage.setItem('isLoggedIn', 'true');
-                localStorage.setItem('user', JSON.stringify(response.data.user));
-                localStorage.setItem('storedUser', JSON.stringify(userData));
                 dispatch(loginSuccess(response.data));
                 dispatch(setUser(user));
                 console.log(" check user ", user)
                 router.push('/');
             } else {
-                //Role is true, redirect to admin interface
-                localStorage.setItem('isLoggedIn', 'true');
                 dispatch(loginSuccess(response.data));
                 dispatch(setUser(user));
                 router.push('http://localhost:3000/');

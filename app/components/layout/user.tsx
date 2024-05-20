@@ -29,8 +29,6 @@ const User: React.FC<UserProps> = ({ isLoggedIn, user }) => {
 
                     setStoredUser(userData);
                     dispatch(setUser({ ...user, id: user.id }));
-                    localStorage.setItem('storedUser', JSON.stringify(userData));
-
                 } catch (error) {
                     console.error('Lỗi khi lấy thông tin người dùng:', error);
                 }

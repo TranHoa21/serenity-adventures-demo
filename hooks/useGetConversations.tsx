@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "@/app/api/axiosInstance";
+import { RootState } from '@/app/store/store';
+import { useSelector } from 'react-redux';
 
 interface Conversation {
     id: string;
@@ -13,7 +15,7 @@ interface Conversation {
 const useGetConversations = () => {
     const [loading, setLoading] = useState(false);
     const [conversations, setConversations] = useState([]);
-    const currentUserID = JSON.parse(localStorage.getItem("storedUser") ?? "{}").id;
+    const currentUserID = useSelector((state: RootState) => state.user.id)
     useEffect(() => {
         const getConversations = async () => {
             setLoading(true);

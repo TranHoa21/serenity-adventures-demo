@@ -6,9 +6,10 @@ interface Action {
 }
 const initialState: UserState = {
     name: '',
-    id: '',
+    id: 0,
     email: '',
     avatar: '',
+    role: false
 };
 
 const userReducer = (state = initialState, action: Action) => {
@@ -20,6 +21,8 @@ const userReducer = (state = initialState, action: Action) => {
                 name: action.payload.name,
                 email: action.payload.email,
                 avatar: action.payload.avatar,
+                role: action.payload.role,
+
             };
         default:
             return state;

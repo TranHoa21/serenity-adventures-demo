@@ -17,7 +17,7 @@ interface State {
     selectedConversation: Conversation | null;
     messages: {
         receiveId: number;
-        senderId: string;
+        senderId: number;
         createdAt: Date;
         message: string;
         shouldShake: any;
@@ -31,7 +31,7 @@ interface State {
     isShowSideBar: boolean;
     unreadCounts: any
     notifications: {
-        senderId: string;
+        senderId: number;
         createdAt: Date;
         notification: string;
         unread: boolean;

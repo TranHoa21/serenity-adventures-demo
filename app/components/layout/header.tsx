@@ -1,4 +1,4 @@
-'use client'
+// Header.tsx
 
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
@@ -32,24 +32,14 @@ const Header: React.FC = () => {
     const goLogin = useCallback(() => {
         router.push('/login');
     }, [router]);
-    const fetchUserFromLocalStorage = useCallback(() => {
-        const storedUser = localStorage.getItem('user');
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-
-        if (storedUser && isLoggedIn) {
-            const user = JSON.parse(storedUser);
-            dispatch(loginSuccess(user));
-            dispatch(setUser(user));
-            setShowAdminView(user.role === true);
-
-        }
-    }, [dispatch]);
 
     useEffect(() => {
-        fetchUserFromLocalStorage();
-    }, []);
+        if (isLoggedIn) {
+            setShowAdminView(user.role === true);
+        }
+    }, [isLoggedIn, user.role]);
+
     const handleLogout = useCallback(() => {
-        localStorage.setItem('isLoggedIn', 'false');
         dispatch(logout());
         setIsShowMenu(false);
         router.push('/');

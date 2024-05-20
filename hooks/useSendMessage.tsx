@@ -9,7 +9,7 @@ import { io, Socket } from "socket.io-client";
 
 interface Message {
     content: string;
-    sender: string;
+    sender: number;
     timestamp: number;
 }
 

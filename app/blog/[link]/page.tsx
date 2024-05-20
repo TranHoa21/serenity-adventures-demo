@@ -31,7 +31,7 @@ interface Comment {
     user_name: string;
     post_id: number;
     user_avatar: string;
-    user_id: string;
+    user_id: number;
 }
 
 

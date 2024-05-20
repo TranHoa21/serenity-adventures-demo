@@ -4,7 +4,7 @@ import { PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import currency from 'currency.js';
 import "@/app/styles/tour/payment.scss"
 import { RootState } from '@/app/store/store';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import email from "@/public/img/email_11840146.png";
 import day from "@/public/img/calendar_7614517.png"
 import phone from "@/public/img/call_3687004.png"
@@ -26,7 +26,8 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
     const [paymentStatus, setPaymentStatus] = useState(true);
     const [bookingSuccess, setBookingSuccess] = useState(false);
     const orderIdPay = orderIdPayment;
-    const userId = JSON.parse(localStorage.getItem("user") ?? "{}").id
+    const userId = user.id;
+
 
     const handleCreateOrder = async (): Promise<string> => {
         try {

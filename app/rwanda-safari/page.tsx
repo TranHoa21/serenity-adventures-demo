@@ -19,7 +19,6 @@ interface Tour {
 
 const RwandaSafari = () => {
     const [tours, setTours] = useState<Tour[]>([]);
-    const searchParams = useSearchParams();
 
 
 

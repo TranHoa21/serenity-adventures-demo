@@ -14,9 +14,10 @@ export interface Conversations {
 }
 export interface UserState {
     name: string;
-    id: string;
+    id: number;
     email: string;
-    avatar: string
+    avatar: string;
+    role: boolean;
 }
 export interface User {
     name: string;
@@ -38,7 +39,7 @@ export interface MessState {
     } | null;
     messages: {
         receiveId: number;
-        senderId: string;
+        senderId: number;
         createdAt: Date;
         message: string;
         shouldShake: any;
@@ -52,7 +53,7 @@ export interface MessState {
     isShowSideBar: boolean;
     unreadCounts: any
     notification: {
-        senderId: string;
+        senderId: number;
         createdAt: Date;
         notification: string;
         unread: boolean;

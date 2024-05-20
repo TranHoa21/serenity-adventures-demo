@@ -1,5 +1,5 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useState, Suspense } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import logo from '@/public/img/ser-logo_preview_rev_1.png';
@@ -14,7 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 const SideNav = () => {
 
     const pathname = usePathname();
-    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+    const isLoggedIn = useSelector((state: RootState) => state.auth.isLoggedIn);
     const client = useSelector((state: RootState) => state.mess.messages);
     const hasNewNotification = useSelector((state: RootState) => state.mess.status);
 
@@ -112,16 +112,17 @@ const SideNav = () => {
                         </NavDropdown>
                     )}
 
-                    <div className="menu-item " >
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <div className="menu-item"><Header /></div>
 
-                        <Header />
-
-                    </div>
+                    </Suspense>
                 </div>
 
-
             </Navbar.Collapse>
-        </Navbar>
+
+
+
+        </Navbar >
 
     )
 }

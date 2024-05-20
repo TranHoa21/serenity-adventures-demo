@@ -5,9 +5,10 @@ import { useEffect, useState } from 'react';
 import Link from "next/link";
 import React from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
-import "../../style/order/style.scss"
+import "@/app/styles/user/style.scss";
 import moment from 'moment';
-
+import { RootState } from '@/app/store/store';
+import { useSelector } from 'react-redux';
 
 type Props = {};
 
@@ -36,7 +37,7 @@ export default function Order() {
     const [bookingDetails, setBookingDetails] = useState<Payment | null>(null);
     const [bookingStatus, setBookingStatus] = useState('');
     const [reloadData, setReloadData] = useState(false);
-    const userNowId = JSON.parse(localStorage.getItem("storedUser") ?? "{}").id;
+    const userNowId = useSelector((state: RootState) => state.user.id);
 
     useEffect(() => {
         const fetchData = async () => {

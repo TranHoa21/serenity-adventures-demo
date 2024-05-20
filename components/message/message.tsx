@@ -9,7 +9,7 @@ import { useEffect, useState } from "react";
 
 
 interface Message {
-    senderId: string;
+    senderId: number;
     createdAt: Date;
     message: string;
     shouldShake: any;

@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-
+import { RootState } from '@/app/store/store';
+import { useSelector } from 'react-redux';
 import axiosInstance from "../app/api/axiosInstance"
 
 const useGetNotifications = () => {
     const [loading, setLoading] = useState(false);
     const [notifications, setNotifications] = useState([]);
-    const currentUserID = JSON.parse(localStorage.getItem("storedUser") ?? "{}").id;
+    const currentUserID = useSelector((state: RootState) => state.user.id);
     useEffect(() => {
         const getConversations = async () => {
             setLoading(true);
