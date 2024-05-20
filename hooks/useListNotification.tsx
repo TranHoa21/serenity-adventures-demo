@@ -1,7 +1,7 @@
 
 import { useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../my-app/app/store/store";
+import { RootState } from "../app/store/store";
 import { setNotification } from "@/app/store/actions/messActions";
 import { io, Socket } from "socket.io-client";
 
