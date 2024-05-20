@@ -55,9 +55,12 @@ const TourDetail = () => {
                         <img className="img-tour" src={tour.image} alt={tour.title} />
                         <div
                             id="content-container"
-                            dangerouslySetInnerHTML={{ __html: tour.description }}
-                        />
-                        <div><h4>Expense: <em>{tour.price}$</em> </h4></div>
+                            dangerouslySetInnerHTML={{ __html: tour.description }} ></div>
+
+                        <div>
+                            <h4>Expense: <em>{tour.price}$</em> </h4>
+                        </div>
+
                     </div>
                     <div className="col-sm-4">
                         <Booking />

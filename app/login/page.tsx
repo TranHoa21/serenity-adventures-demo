@@ -40,6 +40,7 @@ const Login = () => {
             Cookies.set('accessToken', response.data.accessToken);
             Cookies.set('isLoggedIn', true.toString());
             Cookies.set('userdata', user);
+
             if (role === false) {
                 dispatch(loginSuccess(response.data));
                 dispatch(setUser(user));
