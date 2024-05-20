@@ -46,7 +46,7 @@ const Login = () => {
             } else {
                 dispatch(loginSuccess(response.data));
                 dispatch(setUser(user));
-                router.push('http://localhost:3000/');
+                router.push('/');
             }
         } catch (error) {
             console.error('Lỗi:', error);
