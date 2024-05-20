@@ -183,7 +183,7 @@ const Booking = () => {
             </form>
 
             {showPayment && (
-                <div className='col-sm-3'>
+                <div className='bookingFailure'>
 
                     <div className='payment'>
                         <button className='pay-btn' onClick={() => setShowPayment(false)}><img src={cancel.src} className="btn-icon" /></button>
