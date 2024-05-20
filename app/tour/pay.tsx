@@ -166,7 +166,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
                 </div>
             )}
             {bookingSuccess && (
-                <div className="col-sm-2">
+                <div className="bookingSuccess">
                     <div className="successful">
                         <div className="alert-success">Booking thành công!</div>
                         <button onClick={() => {
@@ -178,7 +178,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
                 </div>
             )}
             {bookingFailure && (
-                <div className="col-sm-3">
+                <div className="bookingFailure">
                     <div className="successful">
                         <div className="alert-failure">Booking thất bại!</div>
                         <button onClick={() => {
