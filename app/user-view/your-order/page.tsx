@@ -7,8 +7,8 @@ import React from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
 import "@/app/styles/user/style.scss";
 import moment from 'moment';
-import { RootState } from '@/app/store/store';
-import { useSelector } from 'react-redux';
+
+import { getAuthCookie } from "@/utils/cookies"
 
 type Props = {};
 
@@ -32,19 +32,17 @@ export default function Order() {
     const [data, setData] = useState<Payment[]>([]);
     const [currentPage, setCurrentPage] = useState<number>(1);
     const [itemsPerPage] = useState<number>(5);
-    const router = useRouter();
     const [view, setView] = useState(false);
     const [bookingDetails, setBookingDetails] = useState<Payment | null>(null);
-    const [bookingStatus, setBookingStatus] = useState('');
     const [reloadData, setReloadData] = useState(false);
-    const userNowId = useSelector((state: RootState) => state.user.id);
+    const { userId } = getAuthCookie();
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('https://serenity-adventures-demo.onrender.com/api/v1/booking');
                 const sortedData = response.data
-                    .filter((booking: Payment) => booking.userId === userNowId)
+                    .filter((booking: Payment) => String(booking.userId) === String(userId))
                     .sort((a: Payment, b: Payment) => b.id - a.id);
                 setData(sortedData);
             } catch (error) {
@@ -53,7 +51,7 @@ export default function Order() {
         };
 
         fetchData();
-    }, [reloadData, userNowId]);
+    }, [reloadData, userId]);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;

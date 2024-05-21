@@ -11,6 +11,7 @@ import Link from "next/link";
 import axiosInstance from "@/app/api/axiosInstance"
 import Cookies from 'js-cookie';
 
+
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -34,17 +35,17 @@ const Login = () => {
                 email,
                 password,
             });
+            console.log("check data ", response.data)
+            Cookies.set("isLoggedIn", true.toString())
             const user = response.data.user;
-            const role = user.role;
+            const userId = user.id
+            Cookies.set("userId", userId)
+            const { id, name, role } = user;
             dispatch(setUser(user));
-            Cookies.set('accessToken', response.data.accessToken);
-            Cookies.set('isLoggedIn', true.toString());
-            Cookies.set('userdata', user);
 
             if (role === false) {
                 dispatch(loginSuccess(response.data));
                 dispatch(setUser(user));
-                console.log(" check user ", user)
                 router.push('/');
             } else {
                 dispatch(loginSuccess(response.data));

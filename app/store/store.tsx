@@ -1,4 +1,4 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import authReducer from '@/app/store/reducers/authReducer';
 import userReducer from '@/app/store/reducers/userReducer';
 import postReducer from '@/app/store/reducers/postReducer';
@@ -6,7 +6,7 @@ import bookingReducer from '@/app/store/reducers/bookingReducer';
 import { MessState, SocketState, UserState } from "./type/type";
 import socketReducer from './reducers/socketReducers';
 import messReducer from './reducers/messReducer';
-
+import authTokenReducer from "./reducers/authTokenReducer"
 
 export interface BookingState {
     name: string;
@@ -24,6 +24,10 @@ export interface PostState {
     like: string;
     id: string;
     comment: string;
+}
+export interface TokenState {
+    userId: number,
+    token: string;
 }
 
 export interface Post {
@@ -46,7 +50,9 @@ export interface RootState {
     booking: BookingState;
     mess: MessState;
     socket: SocketState;
+    token: TokenState;
 }
+
 
 const rootReducer = combineReducers({
     auth: authReducer,
@@ -55,8 +61,10 @@ const rootReducer = combineReducers({
     booking: bookingReducer,
     socket: socketReducer,
     mess: messReducer,
+    token: authTokenReducer
 });
+
 
 const store = createStore(rootReducer);
 
-export default store;
+export default store 

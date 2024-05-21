@@ -1,20 +1,18 @@
 'use client'
 import React, { useEffect, useState, ChangeEvent, FormEvent } from 'react';
-import axios from 'axios';
-import { useParams } from 'next/navigation';
-import { RootState } from '@/app/store/store';
+
 import "@/app/styles/booking/booking.scss";
 import MultiSelectWithDB from "@/app/tour/tour";
 import currency from 'currency.js';
 import Payment from "@/app/tour/pay"
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { saveBooking } from '@/app/store/actions/bookingActions';
 import cancel from "@/public/img/delete_14025460.png"
-
+import { getAuthCookie } from "@/utils/cookies"
 
 
 const Booking = () => {
-    const userId = useSelector((state: RootState) => state.user.id);
+    const userId = getAuthCookie();
     const dispatch = useDispatch()
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();

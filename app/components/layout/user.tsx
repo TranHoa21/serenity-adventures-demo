@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import anonAvatar from '@/public/img/user_1177568.png';
 import axios from 'axios';
 import '@/app/styles/layout/header.scss';
-import { setUser } from '@/app/store/actions/userActions';
 import { useDispatch } from 'react-redux';
 
 interface User {
@@ -14,9 +13,10 @@ interface User {
 interface UserProps {
     isLoggedIn: boolean;
     user: User | null;
+    userId: any;
 }
 
-const User: React.FC<UserProps> = ({ isLoggedIn, user }) => {
+const User: React.FC<UserProps> = ({ isLoggedIn, user, userId }) => {
     const [storedUser, setStoredUser] = useState<User | null>(null);
     const dispatch = useDispatch();
 
@@ -24,11 +24,10 @@ const User: React.FC<UserProps> = ({ isLoggedIn, user }) => {
         if (user) {
             const fetchUser = async () => {
                 try {
-                    const response = await axios.get(`https://serenity-adventures-demo.onrender.com/api/v1/user/${user.id}`);
+                    const response = await axios.get(`https://serenity-adventures-demo.onrender.com/api/v1/user/${userId}`);
                     const userData = response.data;
 
                     setStoredUser(userData);
-                    dispatch(setUser({ ...user, id: user.id }));
                 } catch (error) {
                     console.error('Lỗi khi lấy thông tin người dùng:', error);
                 }

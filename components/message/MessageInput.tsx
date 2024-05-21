@@ -4,6 +4,7 @@ import useSendMessage from "@/hooks/useSendMessage";
 import "@/app/styles/components/messageinput.scss"
 import { RootState } from '@/app/store/store';
 import { useSelector } from 'react-redux';
+import Cookies from 'js-cookie';
 
 const MessageInput = () => {
     const [message, setMessage] = useState("");
@@ -14,7 +15,6 @@ const MessageInput = () => {
         e.preventDefault();
         if (!message) return;
         await sendMessage({ content: message, sender: senderId, timestamp: Date.now() });
-
         setMessage("");
     };
 

@@ -9,14 +9,13 @@ import email from "@/public/img/email_11840146.png";
 import day from "@/public/img/calendar_7614517.png"
 import phone from "@/public/img/call_3687004.png"
 import tour from "@/public/img/tour-guide_9682036.png";
-
+import { getAuthCookie } from "@/utils/cookies"
 interface PaymentProps {
     onOkButtonClick: () => void;
     onHidePayment: () => void;
 }
 export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps) {
     const booking = useSelector((state: RootState) => state.booking);
-    const user = useSelector((state: RootState) => state.user);
     const [totalAmount, setTotalAmount] = useState(currency(booking.price));
     const totalAmountRef = useRef(totalAmount);
     const [payment, setPayment] = useState(false);
@@ -26,7 +25,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
     const [paymentStatus, setPaymentStatus] = useState(true);
     const [bookingSuccess, setBookingSuccess] = useState(false);
     const orderIdPay = orderIdPayment;
-    const userId = user.id;
+    const userId = getAuthCookie();
 
 
     const handleCreateOrder = async (): Promise<string> => {

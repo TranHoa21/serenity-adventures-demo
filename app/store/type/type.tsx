@@ -6,6 +6,11 @@ export const SET_MESSAGES = 'SET_MESSAGES';
 export const TOGGLE_IS_SHOW_CHAT = 'TOGGLE_IS_SHOW_CHAT';
 export const TOGGLE_IS_SHOW_SIDEBAR = "TOGGLE_IS_SHOW_SIDEBAR";
 export const SET_NOTIFICATION = "SET_NOTIFICATION";
+
+// types.ts
+
+
+
 export interface Conversations {
     id: string;
     name: string;

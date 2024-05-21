@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "@/app/api/axiosInstance";
-import { RootState } from '@/app/store/store';
-import { useSelector } from 'react-redux';
+
+import { getAuthCookie } from "@/utils/cookies"
 
 interface Conversation {
     id: string;
@@ -15,7 +15,7 @@ interface Conversation {
 const useGetConversations = () => {
     const [loading, setLoading] = useState(false);
     const [conversations, setConversations] = useState([]);
-    const currentUserID = useSelector((state: RootState) => state.user.id)
+    const { userId } = getAuthCookie();
     useEffect(() => {
         const getConversations = async () => {
             setLoading(true);
@@ -25,7 +25,7 @@ const useGetConversations = () => {
                 if (data.error) {
                     throw new Error(data.error);
                 }
-                const filteredConversations = data.filter((user: any) => user.id !== currentUserID);
+                const filteredConversations = data.filter((user: any) => user.id !== userId);
                 setConversations(filteredConversations);
             } catch (error: any) {
                 toast.error(error.message);

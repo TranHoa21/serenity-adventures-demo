@@ -2,8 +2,8 @@ import { RootState } from "@/app/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { setHasNewMessage, selectConversation } from "@/app/store/actions/messActions";
 import "@/app/styles/components/conversation.scss";
-import { useEffect } from "react";
 import axios from "axios";
+import { removeNotification } from "@/utils/cookies"
 
 
 const Conversation = ({ conversation, lastIdx }: any) => {
@@ -22,6 +22,7 @@ const Conversation = ({ conversation, lastIdx }: any) => {
             console.log("check client >>", client)
             dispatch(selectConversation(conversation));
             dispatch(setHasNewMessage(true));
+            removeNotification()
             axios.put(`https://serenity-adventures-demo.onrender.com/api/v1/messages/${messageId}`, { client: true })
 
         } catch (error) {

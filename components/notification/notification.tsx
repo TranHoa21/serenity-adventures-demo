@@ -2,12 +2,10 @@ import { RootState } from "@/app/store/store";
 import { useDispatch, useSelector } from "react-redux";
 import { setHasNewNotification, selectConversation } from "@/app/store/actions/messActions";
 import "@/app/styles/components/notification.scss"
-import { io } from "socket.io-client";
 import axios from "axios";
-import { useRouter } from 'next/navigation';
-import toast from "react-hot-toast";
+import { removeShowChat } from "@/utils/cookies"
 
-const socket = io("https://serenity-adventures-demo.onrender.com/");
+
 
 const Notifications = ({ notification, lastIdx }: any) => {
     const dispatch = useDispatch();
@@ -23,6 +21,7 @@ const Notifications = ({ notification, lastIdx }: any) => {
             axios.put(`https://serenity-adventures-demo.onrender.com/api/v1/notificationclient/${messageId}`, { status: true })
                 .then(response => {
                     dispatch(setHasNewNotification(false));
+                    removeShowChat()
                 })
                 .catch(error => {
                     console.error('Failed to fetch booking details:', error);

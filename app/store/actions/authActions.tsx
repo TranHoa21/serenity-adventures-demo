@@ -13,3 +13,8 @@ export const logout = () => {
         type: LOGOUT,
     };
 };
+
+export const setUserInfo = (userId: any, token: any) => ({
+    type: 'SET_USER_INFO',
+    payload: { userId, token },
+});

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { RootState } from '@/app/store/store';
-import { useSelector } from 'react-redux';
+import { getAuthCookie } from "@/utils/cookies"
 import axiosInstance from "../app/api/axiosInstance"
+import Cookies from 'js-cookie';
 
 const useGetNotifications = () => {
     const [loading, setLoading] = useState(false);
     const [notifications, setNotifications] = useState([]);
-    const currentUserID = useSelector((state: RootState) => state.user.id);
+    const userId = getAuthCookie().userId;
     useEffect(() => {
         const getConversations = async () => {
             setLoading(true);
@@ -17,8 +17,10 @@ const useGetNotifications = () => {
                 if (data.error) {
                     throw new Error(data.error);
                 }
-                const filteredConversations = data.filter((userId: any) => userId !== currentUserID);
+                const filteredConversations = data.filter((userId: any) => userId !== userId);
                 setNotifications(filteredConversations);
+                Cookies.set("isShowNotification", true.toString())
+
             } catch (error: any) {
                 toast.error(error.message);
             } finally {

@@ -8,21 +8,18 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useSearchParams, useRouter } from 'next/navigation';
 import '@/app/styles/layout/header.scss';
 import { RootState } from '@/app/store/store';
-import { logout } from '@/app/store/actions/authActions';
 const { AiOutlineLogout } = icons;
 import { NavDropdown } from 'react-bootstrap';
-import Cookies from 'js-cookie';
+import { getAuthCookie, removeAuthCookie } from "@/utils/cookies"
 
 const Header: React.FC = () => {
     const router = useRouter();
     const searchParams = useSearchParams()
     const headerRef = useRef<HTMLDivElement>(null);
     const [isShowMenu, setIsShowMenu] = useState(false);
-    const isLoggedIn = Cookies.get('isLoggedIn');
-    const isLoggedInBoolean = isLoggedIn === 'true';
     const user = useSelector((state: RootState) => state.user);
     const dispatch = useDispatch();
-    const userId = user.id;
+    const { userId, isLoggedIn } = getAuthCookie();
     const [showAdminView, setShowAdminView] = useState(false);
     useEffect(() => {
         headerRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -33,13 +30,14 @@ const Header: React.FC = () => {
     }, [router]);
 
     useEffect(() => {
-        if (isLoggedInBoolean) {
+        console.log("check >>>", userId)
+        if (isLoggedIn) {
             setShowAdminView(user.role === true);
         }
-    }, [isLoggedInBoolean, user.role]);
+    }, [isLoggedIn, user.role]);
 
     const handleLogout = useCallback(() => {
-        dispatch(logout());
+        removeAuthCookie()
         setIsShowMenu(false);
         router.push('/');
         window.location.reload();
@@ -62,7 +60,7 @@ const Header: React.FC = () => {
                 {isLoggedIn && (
 
 
-                    <NavDropdown className="second-nav-dropdown" title={<User isLoggedIn={isLoggedInBoolean} user={user} />} >
+                    <NavDropdown className="second-nav-dropdown" title={<User isLoggedIn={isLoggedIn} user={user} userId={userId} />} >
                         <NavDropdown.Item href={`/user-view/${userId}`}>
                             xem chi tiết
                         </NavDropdown.Item>

@@ -11,15 +11,15 @@ import notification from "@/public/img/bell_1827312.png";
 import Conversations from "@/components/notification/listNotification"
 import { RootState } from "@/app/store/store";
 import { useSelector } from "react-redux";
-import Cookies from 'js-cookie';
+import { getAuthCookie } from "@/utils/cookies"
 
 const SideNav = () => {
 
     const pathname = usePathname();
-    const isLoggedIn = Cookies.get('isLoggedIn');
-    const isLoggedInBoolean = isLoggedIn === 'true';
+
     const client = useSelector((state: RootState) => state.mess.messages);
     const hasNewNotification = useSelector((state: RootState) => state.mess.status);
+    const { isLoggedIn, isShowNotification, isShowChat } = getAuthCookie();
 
 
 
@@ -96,18 +96,29 @@ const SideNav = () => {
                 </div>
                 <div className="item menu end ">
 
-                    {isLoggedInBoolean && (
+                    {isLoggedIn && (
                         <Nav.Link className={`menu-item  ${pathname === '/chat' ? 'active' : ''}`} href="/chat">
                             <img className="icon" src={chat.src} />
-                            {!client && <span className="new-notification'"></span>}
+                            {isShowChat && <div className="show-chat" style={{
+                                width: '10px',
+                                height: '10px',
+                                backgroundColor: 'red',
+                                borderRadius: '50%'
+                            }}></div>}
                         </Nav.Link>
 
 
                     )}
-                    {isLoggedInBoolean && (
+                    {isLoggedIn && (
                         <NavDropdown className="chat-nav-dropdown menu-item " title={<div>
                             <img className="icon" src={notification.src} />
-                            {!hasNewNotification && <span className="new-notification'"></span>}
+                            {isShowNotification && <div className="notification" style={{
+                                width: '10px',
+                                height: '10px',
+                                backgroundColor: 'red',
+                                borderRadius: '50%',
+                                marginLeft: '15px'
+                            }}></div>}
                         </div>}>
                             <div className="notification" >
                                 <Conversations />
