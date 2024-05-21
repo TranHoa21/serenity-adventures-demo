@@ -5,12 +5,12 @@ import { useParams } from 'next/navigation';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/app/store/store';
 import "@/app/styles/blog/link.scss";
-import MultiSelectWithDB from "@/app/tour/tour";
 import love from "@/public/img/heart_833472.png";
 import unLike from "@/public/img/love_8647296.png";
 import comment from "@/public/img/message_8799976.png"
 import { likePost, unlikePost } from '@/app/store/actions/postActions';
 import Booking from "@/app/tour/booking"
+import { getAuthCookie } from "@/utils/cookies"
 
 interface Post {
     id: number;
@@ -43,7 +43,7 @@ interface User {
 
 const TourDetail = () => {
     const user = useSelector((state: RootState) => state.user);
-    const userId = useSelector((state: RootState) => state.user.id);
+    const userId = getAuthCookie().userId;
     const { link } = useParams();
 
     const [post, setPost] = useState<Post | null>(null);
@@ -219,7 +219,7 @@ const TourDetail = () => {
                                                 <h5> {comments.user_name} </h5>
                                                 {comments.comment_text}
                                             </div>
-                                            {comments.user_id === userId && (
+                                            {String(comments.user_id) === String(userId) && (
                                                 <>
                                                     <button className="btn-up-de" onClick={handleDeleteCommentClick(comments.id)}>Delete</button>
                                                 </>

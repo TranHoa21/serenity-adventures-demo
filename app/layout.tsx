@@ -5,7 +5,6 @@ import SideNav from '@/app/components/layout/navbar';
 import Footer from '@/app/components/layout/footer';
 import { Provider } from 'react-redux';
 import store from './store/store'; // Import Redux store
-import { useEffect } from "react"
 
 const inter = Inter({ subsets: ["latin"] });
 

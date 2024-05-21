@@ -21,7 +21,7 @@ const useListenMessages = () => {
 	const messages = useSelector((state: RootState) => state.mess.messages);
 	const { userId } = getAuthCookie();
 	useEffect(() => {
-		const socket = io("https://serenity-adventures-demo.onrender.com/", {
+		const socket = io("https://serenity-adventures-demo.onrender.com", {
 			query: { userId: userId }
 		});
 

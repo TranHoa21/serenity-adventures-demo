@@ -25,7 +25,7 @@ const useGetConversations = () => {
                 if (data.error) {
                     throw new Error(data.error);
                 }
-                const filteredConversations = data.filter((user: any) => user.id !== userId);
+                const filteredConversations = data.filter((user: any) => user.id.toString() !== userId);
                 setConversations(filteredConversations);
             } catch (error: any) {
                 toast.error(error.message);

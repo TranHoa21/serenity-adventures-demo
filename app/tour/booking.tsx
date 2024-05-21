@@ -12,7 +12,7 @@ import { getAuthCookie } from "@/utils/cookies"
 
 
 const Booking = () => {
-    const userId = getAuthCookie();
+    const userId = getAuthCookie().userId;
     const dispatch = useDispatch()
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
@@ -29,7 +29,7 @@ const Booking = () => {
             price: totalAmount,
             tour: selectedTours,
             people: numTravelers,
-            userid: userId
+            userId: userId
         };
         dispatch(saveBooking(bookingData));
         console.log("check redux booking >>>", bookingData)

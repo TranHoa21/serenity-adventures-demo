@@ -23,7 +23,7 @@ const useSendMessage = () => {
     const [socket, setSocket] = useState<Socket | null>(null);
 
     useEffect(() => {
-        const socketInstance = io("https://serenity-adventures-demo.onrender.com/");
+        const socketInstance = io("https://serenity-adventures-demo.onrender.com");
 
         socketInstance.on("connect", () => {
             console.log("Connected to server");
@@ -43,7 +43,7 @@ const useSendMessage = () => {
     const sendMessage = async (notification: Notification) => {
         setLoading(true);
         try {
-            const res = await axiosInstance.post(`https://serenity-adventures-demo.onrender.com//api/v1/user`);
+            const res = await axiosInstance.post(`https://serenity-adventures-demo.onrender.com/api/v1/user`);
             const data = await res.data.filter((user: any) => user.role === true);
             const receiverId = data.id
             if (data.error) throw new Error(data.error);

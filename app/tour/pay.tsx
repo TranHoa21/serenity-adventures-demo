@@ -25,7 +25,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
     const [paymentStatus, setPaymentStatus] = useState(true);
     const [bookingSuccess, setBookingSuccess] = useState(false);
     const orderIdPay = orderIdPayment;
-    const userId = getAuthCookie();
+    const userId = getAuthCookie().userId;
 
 
     const handleCreateOrder = async (): Promise<string> => {

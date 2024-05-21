@@ -23,7 +23,7 @@ const useListenMessages = () => {
 	const socket = useRef<Socket | null>(null);
 
 	useEffect(() => {
-		socket.current = io("https://serenity-adventures-demo.onrender.com/");
+		socket.current = io("https://serenity-adventures-demo.onrender.com");
 
 		return () => {
 			if (socket.current) {

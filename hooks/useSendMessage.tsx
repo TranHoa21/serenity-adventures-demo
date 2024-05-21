@@ -21,7 +21,7 @@ const useSendMessage = () => {
     const [socket, setSocket] = useState<Socket | null>(null);
 
     useEffect(() => {
-        const socketInstance = io("https://serenity-adventures-demo.onrender.com/");
+        const socketInstance = io("https://serenity-adventures-demo.onrender.com");
 
         socketInstance.on("connect", () => {
             console.log("Connected to server");
@@ -42,7 +42,7 @@ const useSendMessage = () => {
         setLoading(true);
         try {
             if (!selectedConversation?.id) return;
-            const res = await axiosInstance.post(`https://serenity-adventures-demo.onrender.com//api/v1/messages/send/${selectedConversation.id}`, message);
+            const res = await axiosInstance.post(`https://serenity-adventures-demo.onrender.com/api/v1/messages/send/${selectedConversation.id}`, message);
             const data = await res.data;
             if (data.error) throw new Error(data.error);
             console.log("check mess by api >>>", data)
