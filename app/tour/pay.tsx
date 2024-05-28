@@ -126,7 +126,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
                 </div>
 
             </div>
-            {!bookingSuccess && (
+            {!bookingSuccess && !bookingFailure && (
                 <div className='payment-methods'>
                     <p className="discounts">Instant discount of $10 when paying online</p>
                     {!paymentSuccess && (
