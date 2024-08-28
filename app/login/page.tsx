@@ -10,7 +10,7 @@ import { setUser } from '@/app/store/actions/userActions';
 import Link from "next/link";
 import axiosInstance from "@/app/api/axiosInstance"
 import Cookies from 'js-cookie';
-
+import Head from 'next/head';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -31,7 +31,7 @@ const Login = () => {
         e.preventDefault();
 
         try {
-            const response = await axiosInstance.post('https://serenity-adventures-demo.onrender.com/api/v1/auth/login', {
+            const response = await axiosInstance.post('sever-production-702f.up.railway.app/api/v1/auth/login', {
                 email,
                 password,
             });
@@ -58,46 +58,52 @@ const Login = () => {
     };
 
     return (
-        <div className="d1 w-100%">
-            <form className="container" onSubmit={handleSubmit}>
-                <div className="form" id="form">
-                    <div className="content">
-                        <h1>Log In</h1>
-                        <div className="group">
-                            <input
-                                type="text"
-                                className="inputText"
-                                value={email}
-                                onChange={handleEmailChange}
-                                autoComplete="email"
-                                placeholder=""
-                                required
-                            />
-                            <label>Email</label>
+        <>
+            <Head>
+                <title>Log In | Secure Access to Your Account</title>
+                <meta name="description" content="Log in to your account securely to access personalized features and manage your settings. Enter your email and password to get started. Forgot your password? Click here to reset it." />
+            </Head>
+            <div className="d1 w-100%">
+                <form className="container" onSubmit={handleSubmit}>
+                    <div className="form" id="form">
+                        <div className="content">
+                            <h1>Log In</h1>
+                            <div className="group">
+                                <input
+                                    type="text"
+                                    className="inputText"
+                                    value={email}
+                                    onChange={handleEmailChange}
+                                    autoComplete="email"
+                                    placeholder=""
+                                    required
+                                />
+                                <label>Email</label>
+                            </div>
+                            <div className="group">
+                                <input
+                                    type="password"
+                                    className="inputText"
+                                    value={password}
+                                    onChange={handlePasswordChange}
+                                    autoComplete="current-password"
+                                    placeholder=""
+                                    required
+                                />
+                                <label>Password</label>
+                            </div>
+                            <div className="group">
+                                <Link href="/forgot-password">Forgot password?</Link>
+                            </div>
+                            <button type="submit">LogIn</button>
+                            <Link className="signup" href="/signup">Signup</Link>
+
                         </div>
-                        <div className="group">
-                            <input
-                                type="password"
-                                className="inputText"
-                                value={password}
-                                onChange={handlePasswordChange}
-                                autoComplete="current-password"
-                                placeholder=""
-                                required
-                            />
-                            <label>Password</label>
-                        </div>
-                        <div className="group">
-                            <Link href="/forgot-password">Forgot password?</Link>
-                        </div>
-                        <button type="submit">LogIn</button>
-                        <Link className="signup" href="/signup">Signup</Link>
 
                     </div>
-
-                </div>
-            </form>
-        </div>
+                </form>
+            </div>
+        </>
     );
 };
 

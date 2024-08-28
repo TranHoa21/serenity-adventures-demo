@@ -6,7 +6,7 @@ import { Alert } from 'react-bootstrap';
 import Link from "next/link";
 import axiosInstance from "@/app/api/axiosInstance"
 import { useRouter } from 'next/navigation';
-
+import Head from 'next/head';
 const Forgot = () => {
     const [email, setEmail] = useState('');
     const [forgot, setForgot] = useState(false);
@@ -42,7 +42,7 @@ const Forgot = () => {
         e.preventDefault();
 
         try {
-            const response = await axiosInstance.post('https://serenity-adventures-demo.onrender.com/api/v1/auth/send-verification-email', {
+            const response = await axiosInstance.post('sever-production-702f.up.railway.app/api/v1/auth/send-verification-email', {
                 email,
             });
             const data = response.data
@@ -62,7 +62,7 @@ const Forgot = () => {
             return;
         }
         try {
-            const response = await axiosInstance.post('https://serenity-adventures-demo.onrender.com/api/v1/auth/verify-password-reset-code', {
+            const response = await axiosInstance.post('sever-production-702f.up.railway.app/api/v1/auth/verify-password-reset-code', {
                 email, resetCode
             });
             const data = response.data
@@ -79,7 +79,7 @@ const Forgot = () => {
     const handleSubmitUpdatePassword = async (e: FormEvent) => {
         e.preventDefault();
         try {
-            const response = await axiosInstance.post('https://serenity-adventures-demo.onrender.com/api/v1/auth/verify-password-reset-code', {
+            const response = await axiosInstance.post('sever-production-702f.up.railway.app/api/v1/auth/verify-password-reset-code', {
                 email, newPassword
             });
             setSignupSuccess(true)
@@ -98,109 +98,116 @@ const Forgot = () => {
 
 
     return (
-        <div className="d1 w-100%">
-            {inputEmail && (
-                <form className="container" onSubmit={handleSubmit}>
-                    <div className="form" id="form">
-                        <div className="content">
-                            <h1>Forgot Password</h1>
-                            <div className="group">
-                                <input
-                                    type="text"
-                                    className="inputText"
-                                    value={email}
-                                    onChange={handleEmailChange}
-                                    autoComplete="email"
-                                    placeholder=""
-                                    required
-                                />
-                                <label>Email</label>
+        <>
+            <Head>
+                <title>Forgot Password | Reset Your Account Password Easily</title>
+                <meta name="description" content="Reset your password quickly and securely. Enter your email to receive a verification code, then create a new password to regain access to your account." />
+            </Head>
+
+            <div className="d1 w-100%">
+                {inputEmail && (
+                    <form className="container" onSubmit={handleSubmit}>
+                        <div className="form" id="form">
+                            <div className="content">
+                                <h1>Forgot Password</h1>
+                                <div className="group">
+                                    <input
+                                        type="text"
+                                        className="inputText"
+                                        value={email}
+                                        onChange={handleEmailChange}
+                                        autoComplete="email"
+                                        placeholder=""
+                                        required
+                                    />
+                                    <label>Email</label>
+                                </div>
+                                <button type="submit">Send</button>
                             </div>
-                            <button type="submit">Send</button>
+
                         </div>
+                    </form>
+                )}
 
-                    </div>
-                </form>
-            )}
-
-            {forgot && (
-                <form className="container" onSubmit={handleSubmitForgot}>
-                    <div className="form" id="form">
-                        <div className="content">
-                            <h1>Check your email</h1>
-                            <div className="group">
-                                <input
-                                    type="text"
-                                    className="inputText"
-                                    value={resetCode}
-                                    onChange={handleVerificationCodeChange}
-                                    autoComplete="email"
-                                    placeholder=""
-                                    required
-                                />
-                                <label>Auth Code</label>
+                {forgot && (
+                    <form className="container" onSubmit={handleSubmitForgot}>
+                        <div className="form" id="form">
+                            <div className="content">
+                                <h1>Check your email</h1>
+                                <div className="group">
+                                    <input
+                                        type="text"
+                                        className="inputText"
+                                        value={resetCode}
+                                        onChange={handleVerificationCodeChange}
+                                        autoComplete="email"
+                                        placeholder=""
+                                        required
+                                    />
+                                    <label>Auth Code</label>
+                                </div>
+                                <button type="submit">Send</button>
                             </div>
-                            <button type="submit">Send</button>
+
                         </div>
+                    </form>
+                )}
 
-                    </div>
-                </form>
-            )}
-
-            {newPassWord && (
-                <form className="container" onSubmit={handleSubmitUpdatePassword}>
-                    <div className="form" id="form">
-                        <div className="content">
-                            <h1>Forgot Password</h1>
-                            <div className="group">
-                                <input
-                                    type="password"
-                                    className="inputText"
-                                    value={newPassword}
-                                    onChange={handlePasswordChange}
-                                    autoComplete="new-password"
-                                    placeholder=""
-                                    required
-                                />
-                                <label>Password</label>
+                {newPassWord && (
+                    <form className="container" onSubmit={handleSubmitUpdatePassword}>
+                        <div className="form" id="form">
+                            <div className="content">
+                                <h1>Forgot Password</h1>
+                                <div className="group">
+                                    <input
+                                        type="password"
+                                        className="inputText"
+                                        value={newPassword}
+                                        onChange={handlePasswordChange}
+                                        autoComplete="new-password"
+                                        placeholder=""
+                                        required
+                                    />
+                                    <label>Password</label>
+                                </div>
+                                <div className="group">
+                                    <input
+                                        type="password"
+                                        className="inputText"
+                                        value={confirmPassword}
+                                        onChange={handleConfirmPasswordChange}
+                                        autoComplete="new-password"
+                                        placeholder=""
+                                        required
+                                    />
+                                    <label>Confirm Password</label>
+                                </div>
+                                <button type="submit">Send</button>
                             </div>
-                            <div className="group">
-                                <input
-                                    type="password"
-                                    className="inputText"
-                                    value={confirmPassword}
-                                    onChange={handleConfirmPasswordChange}
-                                    autoComplete="new-password"
-                                    placeholder=""
-                                    required
-                                />
-                                <label>Confirm Password</label>
+
+                        </div>
+                        {signupMessage && (
+                            <Alert variant={signupSuccess ? 'success' : 'danger'} id="liveAlertPlaceholder" className="mt-3">
+                                {signupMessage}
+                            </Alert>
+                        )}
+                    </form>
+                )
+                }
+
+                {showAlert && (
+                    <form className="container" onSubmit={handleSubmitForgot}>
+                        <div className="form" id="form">
+                            <div className="content">
+                                <h3><em>Changed password successfully</em></h3>
+                                <h6>Automatically redirects after 5 seconds</h6>
                             </div>
-                            <button type="submit">Send</button>
+
                         </div>
-
-                    </div>
-                    {signupMessage && (
-                        <Alert variant={signupSuccess ? 'success' : 'danger'} id="liveAlertPlaceholder" className="mt-3">
-                            {signupMessage}
-                        </Alert>
-                    )}
-                </form>
-            )
-            }
-
-            {showAlert && (
-                <form className="container" onSubmit={handleSubmitForgot}>
-                    <div className="form" id="form">
-                        <div className="content">
-                            <h3><em>Changed password successfully</em></h3>
-                            <h6>Automatically redirects after 5 seconds</h6>
-                        </div>
-
-                    </div>
-                </form>
-            )}
-        </div>
+                    </form>
+                )}
+            </div>
+        </>
     );
 };
 

@@ -40,7 +40,7 @@ export default function Order() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('https://serenity-adventures-demo.onrender.com/api/v1/booking');
+                const response = await axios.get('sever-production-702f.up.railway.app/api/v1/booking');
                 const sortedData = response.data
                     .filter((booking: Payment) => String(booking.userId) === String(userId))
                     .sort((a: Payment, b: Payment) => b.id - a.id);
@@ -65,7 +65,7 @@ export default function Order() {
         const id = booking.id;
         console.log("check id >>", id);
         setView(true);
-        axios.get(`https://serenity-adventures-demo.onrender.com/api/v1/booking/${id}`)
+        axios.get(`sever-production-702f.up.railway.app/api/v1/booking/${id}`)
             .then(response => {
                 setBookingDetails(response.data);
             })

@@ -42,7 +42,7 @@ const useSendMessage = () => {
         setLoading(true);
         try {
             if (!selectedConversation?.id) return;
-            const res = await axiosInstance.post(`https://serenity-adventures-demo.onrender.com/api/v1/messages/send/${selectedConversation.id}`, message);
+            const res = await axiosInstance.post(`sever-production-702f.up.railway.app/api/v1/messages/send/${selectedConversation.id}`, message);
             const data = await res.data;
             if (data.error) throw new Error(data.error);
             console.log("check mess by api >>>", data)

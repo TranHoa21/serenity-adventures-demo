@@ -6,7 +6,7 @@ import axios from 'axios';
 import { useRouter } from 'next/navigation';
 import { Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import Head from 'next/head';
 
 
 const Signup = () => {
@@ -55,7 +55,7 @@ const Signup = () => {
         const userData = { name, email, password };
         console.log('Sending data to server:', userData);
 
-        axios.post('https://serenity-adventures-demo.onrender.com/api/v1/auth/signup', { name, email, password })
+        axios.post('sever-production-702f.up.railway.app/api/v1/auth/signup', { name, email, password })
             .then(response => {
                 const { success, message, user } = response.data;
                 console.log(success, message, user);
@@ -89,6 +89,10 @@ const Signup = () => {
 
     return (
         <>
+            <Head>
+                <title>Sign Up for an Account | Join Our Community Today</title>
+                <meta name="description" content="Create an account with us to access exclusive content, features, and updates. Sign up now with your name, email, and password to join our growing community!" />
+            </Head>
             <div className="d1 w-100%">
                 <form className="container">
                     <div className="form" id="form" >

@@ -2,10 +2,18 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useSearchParams } from 'next/navigation'
 import "@/app/styles/rwanda/safari.scss";
 import Link from 'next/link';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/scrollbar';
+import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import "@/app/styles/home/slider1.scss";
-import Head from 'next/head';
+
+
 interface Tour {
     id: number;
     image: string;
@@ -16,14 +24,14 @@ interface Tour {
 }
 
 
-const UgandaSafari = () => {
+const RwandaHoneyMoon = () => {
     const [tours, setTours] = useState<Tour[]>([]);
 
     useEffect(() => {
         axios.get<Tour[]>('sever-production-702f.up.railway.app/api/v1/tour') // Thêm kiểu dữ liệu cho response.data
             .then(response => {
                 // Lọc các tour có places_id là 1
-                const filteredTours = response.data.filter(tour => tour.places_name === "Uganda Safari");
+                const filteredTours = response.data.filter(tour => tour.places_name === "Vocational Tours in Rwanda");
                 setTours(filteredTours);
             })
             .catch(error => {
@@ -32,27 +40,40 @@ const UgandaSafari = () => {
     }, []);
     return (
         <>
-            <Head>
-                <title>Uganda Gorilla Trekking Tours | Serenity Adventure Safaris</title>
-                <meta name="description" content="Join Serenity Adventure Safaris for unforgettable Uganda gorilla trekking tours. Experience close encounters with mountain gorillas in Bwindi and Mgahinga National Parks. Book your tailored safari experience now." />
-            </Head>
-            <h1>Uganda Gorilla Trekking Tours</h1>
+            <h1>Vocational Tours in Rwanda</h1>
             <div className='rwanda-gorilla-container'>
                 <div className='rwanda-gorilla row'>
-                    <div className='col-md-10 col-sm-10'>
-                        <h3><strong>Uganda Gorilla Tours by Serenity Adventure Safaris;</strong></h3>
-                        <p>Without doubt one of the world’s greatest wildlife experiences is the thrill of a close encounter with the reclusive mountain gorillas in their natural habitat. Uganda has the best chance of viewing these delightful apes with the fact that it boasts two parks where they have been habituated for human visits that is; the Mgahinga Gorilla National Park and Bwindi Impenetrable National Park which harbor over half of the remaining world mountain gorillas.</p>
-                        <p>Uganda is undoubtedly home to twelve (12) habituated gorilla groups located in both Mgahinga and Bwindi National Parks, with Mgahinga gifted with one group, that is, the Nyakagezi gorilla family while the remaining groups are spread around Bwindi National Park in 4 different sectors namely; Buhoma which has Mubare, Habinyanja and Rushegura; Ruhijja has Butukura, Oruzogo, and Kyaguriru; Rushaga sector has Nsongi, Mishaya, Kahunjye, and Busingye; and the Nkuringo sector having one gorilla family (Nkuringo). Since eight permits are allocated to track each group daily, 96 Gorilla Tracking permits are guaranteed in Uganda. The time spent tracking gorillas in Uganda depends and varies from half an hour to eight hours depending on the gorilla movements.</p>
-                        <p>This activity starts with a briefing at 8am at the park headquarters of any sector you are booked to track, and after the tracking, you set off to the forest with the guide of the rangers who guide you to the spots where the gorillas may be found. You are allowed only one hour in the midst of these great apes so as not to distract their behavioral patterns. The cost of each gorilla permit in Uganda is USD 600 although low season offers are often provided by the Uganda Wildlife Authority, be sure to check with your local Uganda Safari operator for a guide on low season months and their respective prices.</p>
-                        <p>Gorilla tracking permits can either be bought directly from the Uganda Wildlife Authority offices in Kampala or through your preferred local tour operator. Gorilla Tracking does not present a serious physical challenge to any reasonably fit adult whatever their age, although the hike in some groups can be tough going.</p>
-                        <p>The toughness of the trek varies and the major factor here is luck, specifically how close the gorillas are to the trailhead on the day of the trek. Also how recently it has rained affects conditions underfoot. Important to note is; June to September are the driest months, and March- May and October – December are the wettest months. When to do it: Uganda is suitable to travel to at any time of the year, since it is sunny most of the year with temperatures rarely rising above 29 degrees (84 degrees Fahrenheit). The average annual temperature is about 26 degrees Celsius (78° Fahrenheit).</p>
-                        <p>The rainy season is from March till May and October till November. Light rain season falls in November and December. Dry seasons are from December to February and June to September. The best time, the best months of the year would be December to late February and from June to September. Where to do this Mgahinga Gorilla National Park Bwindi Impenetrable forest Bwindi forest National Park</p>
+                    <div className='col-md-5 col-sm-10'>
+                        <h3><strong>Vocational Tours in Rwanda by Serenity Adventure Safaris;</strong></h3>
+                        <p>Embark on an enriching journey with Serenity Adventure Safaris through our Vocational Tours in Rwanda. These tours are designed to provide hands-on learning experiences in various fields such as agriculture, craftsmanship, healthcare, and education. Discover Rwanda's innovative approaches and traditional practices by visiting vocational training centers, local farms, artisan workshops, and community health clinics. Engage directly with skilled professionals and learn from their expertise while exploring the stunning landscapes of Rwanda.</p>
+                        <h3><strong>Booking a Vocational Tour Experience</strong></h3>
+                        <p>Participating in a vocational tour in Rwanda with Serenity Adventure Safaris is an exceptional way to gain practical knowledge and skills. Our tours offer an opportunity to observe and participate in real-world vocational activities, from farming techniques to artisanal crafts. These tours are ideal for students, professionals, and anyone interested in experiential learning. To ensure a tailored and comprehensive experience, we recommend booking your vocational tour at least 3 months in advance. Immerse yourself in the vocational life of Rwanda and take home not just memories, but valuable skills and insights.</p>
                     </div>
+                    <div className='col-md-5 col-sm-10 silder'>
+                        <Swiper
+                            // install Swiper modules
+                            modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+                            spaceBetween={50}
+                            slidesPerView={1}
+                            autoplay={{ delay: 5000 }}
+                            loop={true}
+                            navigation
+                            pagination={{ clickable: true }}
+                            scrollbar={{ draggable: true }}
+                            onSwiper={(swiper) => console.log(swiper)}
+                            onSlideChange={() => console.log('slide change')}
+                        >
+                            <SwiperSlide><img className="banner" src="https://res.cloudinary.com/dhjrrk4pg/image/upload/v1718921045/learn_nodejs/xin5hj1jnjxbwookdzww.jpg" />
+                            </SwiperSlide>
+                            <SwiperSlide><img className="banner" src="https://res.cloudinary.com/dhjrrk4pg/image/upload/v1718921103/learn_nodejs/wslrdppkgfxarr95twzu.jpg" /></SwiperSlide>
+                            <SwiperSlide><img className="banner" src="https://res.cloudinary.com/dhjrrk4pg/image/upload/v1718921158/learn_nodejs/zkyxiopqxjhzur1chzwj.jpg" /></SwiperSlide>
 
+                        </Swiper>
+                    </div>
                 </div>
             </div>
             <div className="safari">
-                <h2 className="safari-title">Popular Gorilla Tours in Rwanda</h2>
+                <h2 className="safari-title">Vocational Tours in Rwanda</h2>
                 <p className="safari-content">At Serenity Adventure Safaris, We organize the best tailor-made gorilla safaris and gorilla tours in Rwanda, Uganda, and Congo plus a variety of other wildlife safaris & experiences in Africa.  Tracking gorillas in the Volcanoes National Park in Rwanda is the most popular activity and a memorable experience everyone can have. Book with us for a tailor-made itinerary for gorilla tracking today.</p>
                 <div className="row">
                     {tours.map((tour) => (
@@ -111,4 +132,4 @@ const UgandaSafari = () => {
     )
 }
 
-export default UgandaSafari;
+export default RwandaHoneyMoon;

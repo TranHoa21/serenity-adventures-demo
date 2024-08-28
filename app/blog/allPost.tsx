@@ -25,7 +25,7 @@ const AllPost = () => {
     const postsPerPage = 9;
 
     useEffect(() => {
-        axios.get<Post[]>('https://serenity-adventures-demo.onrender.com/api/v1/post')
+        axios.get<Post[]>('sever-production-702f.up.railway.app/api/v1/post')
             .then(response => {
                 setPosts(response.data);
             })

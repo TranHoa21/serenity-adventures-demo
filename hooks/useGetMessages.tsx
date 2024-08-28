@@ -17,7 +17,7 @@ const useGetMessages = () => {
             setLoading(true);
             try {
                 if (!selectedConversation?.id) return;
-                const res = await axiosInstance.get(`https://serenity-adventures-demo.onrender.com/api/v1/messages/${selectedConversation.id}`, {
+                const res = await axiosInstance.get(`sever-production-702f.up.railway.app/api/v1/messages/${selectedConversation.id}`, {
                     params: {
                         senderId: senderId
                     }

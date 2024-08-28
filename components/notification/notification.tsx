@@ -18,7 +18,7 @@ const Notifications = ({ notification, lastIdx }: any) => {
 
     const handleSelectConversation = async () => {
         try {
-            axios.put(`https://serenity-adventures-demo.onrender.com/api/v1/notificationclient/${messageId}`, { status: true })
+            axios.put(`sever-production-702f.up.railway.app/api/v1/notificationclient/${messageId}`, { status: true })
                 .then(response => {
                     dispatch(setHasNewNotification(false));
                     removeShowChat()

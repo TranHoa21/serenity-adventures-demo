@@ -36,7 +36,7 @@ const Message: React.FC<{ message: Message }> = ({ message }) => {
         if (user) {
             const fetchUser = async () => {
                 try {
-                    const response = await axios.get(`https://serenity-adventures-demo.onrender.com/api/v1/user/${message.senderId}`);
+                    const response = await axios.get(`sever-production-702f.up.railway.app/api/v1/user/${message.senderId}`);
                     const userData = response.data;
 
                     setStoredUser(userData);

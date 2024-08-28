@@ -43,7 +43,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
         console.log("check:", amount);
 
         try {
-            const response = await axios.post('https://serenity-adventures-demo.onrender.com/api/v1/payment/create-order', { totalAmount: amount }); // Gửi giá trị totalAmount dưới dạng object
+            const response = await axios.post('sever-production-702f.up.railway.app/api/v1/payment/create-order', { totalAmount: amount }); // Gửi giá trị totalAmount dưới dạng object
             const orderId = response.data.message;
             return orderId;
         } catch (error: any) {
@@ -61,7 +61,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
         const tourName = Array.isArray(booking.tour) && booking.tour.length > 0 ? booking.tour[0] : '';
 
         if (paymentSuccess || !paymentStatus) {
-            axios.post('https://serenity-adventures-demo.onrender.com/api/v1/booking', {
+            axios.post('sever-production-702f.up.railway.app/api/v1/booking', {
                 name: booking.name,
                 email: booking.email,
                 start_day: booking.start_day,
@@ -77,7 +77,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
                     console.log(response.data);
                     setBookingSuccess(true);
                     setPayment(true);
-                    return axios.post('https://serenity-adventures-demo.onrender.com/api/v1/notification', {
+                    return axios.post('sever-production-702f.up.railway.app/api/v1/notification', {
                         userId: userId,
                         bookingId: order_id,
                         message: `The customer has just created a new order ${order_id}`

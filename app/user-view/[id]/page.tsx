@@ -9,6 +9,7 @@ import camera from "@/public/img/camera_685655.png";
 import { MySelect } from "@/app/user-view/gender"
 import { useDispatch } from "react-redux";
 import * as yup from 'yup';
+import Head from 'next/head';
 
 interface User {
     id: number;
@@ -97,7 +98,7 @@ const UserView = () => {
 
     const fetchData = () => {
         if (id) {
-            axios.get<User>(`https://serenity-adventures-demo.onrender.com/api/v1/user/${id}`)
+            axios.get<User>(`sever-production-702f.up.railway.app/api/v1/user/${id}`)
                 .then(response => {
 
                     setUser(response.data);
@@ -147,7 +148,7 @@ const UserView = () => {
                 formData.append('file', avatar);
             }
 
-            const response = await axios.put(`https://serenity-adventures-demo.onrender.com/api/v1/user/${id}`, formData, {
+            const response = await axios.put(`sever-production-702f.up.railway.app/api/v1/user/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -188,7 +189,7 @@ const UserView = () => {
 
     useEffect(() => {
         if (id) {
-            axios.get<User>(`https://serenity-adventures-demo.onrender.com/api/v1/user/${id}`)
+            axios.get<User>(`sever-production-702f.up.railway.app/api/v1/user/${id}`)
                 .then(response => {
 
                     setUser(response.data);
@@ -203,107 +204,113 @@ const UserView = () => {
     }, [id]);
 
     return (
-        <form className="user-container" onSubmit={handleSubmit}>
-            {user ? (
-                <div className="row">
-                    <div className="col-sm-8">
-                        <div className="ava-header">
-                            <div className="image">
+        <>
+            <Head>
+                <title>Update Your Profile | Serenity Adventures</title>
+                <meta name="description" content="Update your profile information on Serenity Adventures. Edit your name, email, phone number, age, gender, and avatar to keep your account details up-to-date." />
+            </Head>
+            <form className="user-container" onSubmit={handleSubmit}>
+                {user ? (
+                    <div className="row">
+                        <div className="col-sm-8">
+                            <div className="ava-header">
+                                <div className="image">
 
-                                <img src={avatar ? URL.createObjectURL(avatar) : user?.avatar} alt={user?.name} className="avatar" />
-                                <img className="icon" src={camera.src} onClick={handleImageClick} />
+                                    <img src={avatar ? URL.createObjectURL(avatar) : user?.avatar} alt={user?.name} className="avatar" />
+                                    <img className="icon" src={camera.src} onClick={handleImageClick} />
+                                    <input
+                                        ref={inputFileRef}
+                                        type="file"
+                                        name="image"
+                                        style={{ display: 'none' }}
+                                        onChange={handleImageChange}
+                                    />
+                                </div>
+                                <div className="name">
+                                    <h2><input
+                                        type="text"
+                                        name="name"
+                                        defaultValue={user?.name || ''}
+                                        onChange={handleNameChange}
+
+                                    /></h2>
+
+                                </div>
+                            </div>
+                            <div className="email">
+                                <h5>Email:</h5>
                                 <input
-                                    ref={inputFileRef}
-                                    type="file"
-                                    name="image"
-                                    style={{ display: 'none' }}
-                                    onChange={handleImageChange}
+                                    type="text"
+                                    name="email"
+                                    defaultValue={user?.email || ''}
+                                    onChange={handleEmailChange}
+
                                 />
                             </div>
-                            <div className="name">
-                                <h2><input
+                            <div className="phone-number">
+                                <h5>Phone number:</h5>
+                                <input
                                     type="text"
-                                    name="name"
-                                    defaultValue={user?.name || ''}
-                                    onChange={handleNameChange}
+                                    name="phonenumber"
+                                    defaultValue={user?.phonenumber || ''}
+                                    onChange={handlePhoneNumberChange}
 
-                                /></h2>
+                                /></div>
+                            <div className="age">
+                                <h5>Age:</h5>
+                                <input
+                                    type="text"
+                                    name="age"
+                                    defaultValue={user?.age || ''}
+                                    onChange={handleAgeChange}
+
+                                />
+                            </div>
+                            <div className="gender">
+                                <h5>Gender:</h5>
+
+                                <MySelect
+                                    value={gender}
+                                    onChange={handleGenderChange}
+                                />
+                            </div>
+                            <button className="btn" type="submit" onClick={handleSubmit}  >Save</button>
+
+                        </div>
+
+                        {showAlert && (
+                            <div className="col-sm-2">
+                                <div className="successful">
+                                    <div className="Update"> Update successful </div>
+                                    <button onClick={() => setShowAlert(false)}>ok</button>
+                                </div>
 
                             </div>
-                        </div>
-                        <div className="email">
-                            <h5>Email:</h5>
-                            <input
-                                type="text"
-                                name="email"
-                                defaultValue={user?.email || ''}
-                                onChange={handleEmailChange}
+                        )}
+                        {noUpdateUserMessage && (
+                            <div className="col-sm-3">
+                                <div className="successful">
+                                    <div className="Update"> There are no changes to update </div>
+                                    <button onClick={() => setNoUpdateUserMessage(false)}>ok</button>
+                                </div>
 
-                            />
-                        </div>
-                        <div className="phone-number">
-                            <h5>Phone number:</h5>
-                            <input
-                                type="text"
-                                name="phonenumber"
-                                defaultValue={user?.phonenumber || ''}
-                                onChange={handlePhoneNumberChange}
+                            </div>
+                        )}
+                        {validation && (
+                            <div className="col-sm-3">
+                                <div className="successful">
+                                    <div className="Update"> Validation error </div>
+                                    <button onClick={() => setValidation(false)}>ok</button>
+                                </div>
 
-                            /></div>
-                        <div className="age">
-                            <h5>Age:</h5>
-                            <input
-                                type="text"
-                                name="age"
-                                defaultValue={user?.age || ''}
-                                onChange={handleAgeChange}
-
-                            />
-                        </div>
-                        <div className="gender">
-                            <h5>Gender:</h5>
-
-                            <MySelect
-                                value={gender}
-                                onChange={handleGenderChange}
-                            />
-                        </div>
-                        <button className="btn" type="submit" onClick={handleSubmit}  >Save</button>
-
+                            </div>
+                        )}
                     </div>
-
-                    {showAlert && (
-                        <div className="col-sm-2">
-                            <div className="successful">
-                                <div className="Update"> Update successful </div>
-                                <button onClick={() => setShowAlert(false)}>ok</button>
-                            </div>
-
-                        </div>
-                    )}
-                    {noUpdateUserMessage && (
-                        <div className="col-sm-3">
-                            <div className="successful">
-                                <div className="Update"> There are no changes to update </div>
-                                <button onClick={() => setNoUpdateUserMessage(false)}>ok</button>
-                            </div>
-
-                        </div>
-                    )}
-                    {validation && (
-                        <div className="col-sm-3">
-                            <div className="successful">
-                                <div className="Update"> Validation error </div>
-                                <button onClick={() => setValidation(false)}>ok</button>
-                            </div>
-
-                        </div>
-                    )}
-                </div>
-            ) : (
-                <div>Loading...</div>
-            )}
-        </form >
+                ) : (
+                    <div>Loading...</div>
+                )}
+            </form >
+        </>
     )
 }
 

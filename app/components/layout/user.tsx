@@ -24,7 +24,7 @@ const User: React.FC<UserProps> = ({ isLoggedIn, user, userId }) => {
         if (user) {
             const fetchUser = async () => {
                 try {
-                    const response = await axios.get(`https://serenity-adventures-demo.onrender.com/api/v1/user/${userId}`);
+                    const response = await axios.get(`sever-production-702f.up.railway.app/api/v1/user/${userId}`);
                     const userData = response.data;
 
                     setStoredUser(userData);

@@ -23,7 +23,7 @@ const Conversation = ({ conversation, lastIdx }: any) => {
             dispatch(selectConversation(conversation));
             dispatch(setHasNewMessage(true));
             removeNotification()
-            axios.put(`https://serenity-adventures-demo.onrender.com/api/v1/messages/${messageId}`, { client: true })
+            axios.put(`sever-production-702f.up.railway.app/api/v1/messages/${messageId}`, { client: true })
 
         } catch (error) {
             console.error('Error updating message status:', error);

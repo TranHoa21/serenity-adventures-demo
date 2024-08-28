@@ -11,7 +11,7 @@ import comment from "@/public/img/message_8799976.png"
 import { likePost, unlikePost } from '@/app/store/actions/postActions';
 import Booking from "@/app/tour/booking"
 import { getAuthCookie } from "@/utils/cookies"
-
+import Head from 'next/head';
 interface Post {
     id: number;
     title: string;
@@ -60,7 +60,7 @@ const TourDetail = () => {
 
     useEffect(() => {
         if (link) {
-            axios.get<Post>(`https://serenity-adventures-demo.onrender.com/api/v1/post/${link}`)
+            axios.get<Post>(`sever-production-702f.up.railway.app/api/v1/post/${link}`)
                 .then(response => {
                     setPost(response.data);
                     setLoading(false);
@@ -69,7 +69,7 @@ const TourDetail = () => {
                         container.innerHTML = response.data.content;
                     }
                     const postId = response.data.id;
-                    axios.get(`https://serenity-adventures-demo.onrender.com/api/v1/post/${postId}/like/${userId}`)
+                    axios.get(`sever-production-702f.up.railway.app/api/v1/post/${postId}/like/${userId}`)
                         .then(response => {
                             setLiked(response.data.liked);
                             console.log("check >>>", liked)
@@ -77,7 +77,7 @@ const TourDetail = () => {
                         .catch(error => {
                             console.error('Lỗi khi lấy danh sách bình luận:', error);
                         });
-                    axios.get<Comment[]>(`https://serenity-adventures-demo.onrender.com/api/v1/post/${postId}/comments`)
+                    axios.get<Comment[]>(`sever-production-702f.up.railway.app/api/v1/post/${postId}/comments`)
                         .then(response => {
                             setComments(response.data);
                         })
@@ -90,7 +90,7 @@ const TourDetail = () => {
                     console.error('Lỗi khi lấy thông tin tour:', error);
                     setLoading(false);
                 });
-            axios.get<User>(`https://serenity-adventures-demo.onrender.com/api/v1/user/${userId}`)
+            axios.get<User>(`sever-production-702f.up.railway.app/api/v1/user/${userId}`)
                 .then(response => {
                     setAvatar(response.data.avatar);
                 })
@@ -126,7 +126,7 @@ const TourDetail = () => {
         const userAvatar = avatar;
         const userName = user.name;
         event.preventDefault();
-        axios.post(`https://serenity-adventures-demo.onrender.com/api/v1/post/${postId}/comments/${userId}`, { content: newComment, userAvatar, userName, userId })
+        axios.post(`sever-production-702f.up.railway.app/api/v1/post/${postId}/comments/${userId}`, { content: newComment, userAvatar, userName, userId })
             .then(response => {
                 const newComment = response.data;
                 setComments(prevComments => [...prevComments, newComment]);
@@ -138,7 +138,7 @@ const TourDetail = () => {
     };
 
     const handleDeleteComment = (commentId: number) => {
-        axios.delete(`https://serenity-adventures-demo.onrender.com/api/v1/post/comments/${commentId}`)
+        axios.delete(`sever-production-702f.up.railway.app/api/v1/post/comments/${commentId}`)
             .then(response => {
                 // Xóa comment khỏi state
                 setComments(prevComments => prevComments.filter(comment => comment.id !== commentId));
@@ -154,7 +154,7 @@ const TourDetail = () => {
         };
     };
     const handleUpdateComment = (commentId: number) => {
-        axios.put(`https://serenity-adventures-demo.onrender.com/api/v1/comments/${commentId}`)
+        axios.put(`sever-production-702f.up.railway.app/api/v1/comments/${commentId}`)
             .then(response => {
                 // Cập nhật comment thành công, bạn có thể thực hiện các hành động khác ở đây nếu cần
                 console.log('Cập nhật comment thành công');
@@ -176,7 +176,7 @@ const TourDetail = () => {
 
         if (liked) {
             axios
-                .delete(`https://serenity-adventures-demo.onrender.com/api/v1/post/${postId}/like/${userId}`)
+                .delete(`sever-production-702f.up.railway.app/api/v1/post/${postId}/like/${userId}`)
                 .then(response => {
                     dispatch(unlikePost(postId, userId));
                     setLiked(false);
@@ -188,7 +188,7 @@ const TourDetail = () => {
                 });
         } else {
             axios
-                .post(`https://serenity-adventures-demo.onrender.com/api/v1/post/${postId}/like/${userId}`, { postId, userId })
+                .post(`sever-production-702f.up.railway.app/api/v1/post/${postId}/like/${userId}`, { postId, userId })
                 .then(response => {
                     dispatch(likePost(postId, userId));
                     setLiked(true);
@@ -201,59 +201,66 @@ const TourDetail = () => {
     };
 
     return (
-        <div>
-            <h1 className="h-title">{post.title}</h1>
-            <div className="box-container">
-                <div className="row">
-                    <div className="content col-sm-7">
-                        <img className="img-tour" src={post.image} alt={post.title} />
-                        <div id="content-container">{post.content}</div>
-                        <div className="interact">
-                            <div className="comments">
-                                <h3>Comments:</h3>
-                                <ul>
-                                    {comments.map(comments => (
-                                        <li className="comment-item" key={comments.id}>
-                                            <img className="avatar" src={comments.user_avatar} alt="Avatar" />
-                                            <div className="comment-content">
-                                                <h5> {comments.user_name} </h5>
-                                                {comments.comment_text}
-                                            </div>
-                                            {String(comments.user_id) === String(userId) && (
-                                                <>
-                                                    <button className="btn-up-de" onClick={handleDeleteCommentClick(comments.id)}>Delete</button>
-                                                </>
+        <>
+            <Head>
+                <title>{post.title} | Discover Unique Travel Experiences | Serenity Adventure Blog</title>
+                <meta name="description" content="Explore {post.title} and get inspired for your next adventure with Serenity Adventure Blog. Read about unique travel experiences, share your thoughts, and engage with our community." />
+            </Head>
+
+            <div>
+                <h1 className="h-title">{post.title}</h1>
+                <div className="box-container">
+                    <div className="row">
+                        <div className="content col-sm-7">
+                            <img className="img-tour" src={post.image} alt={post.title} />
+                            <div id="content-container">{post.content}</div>
+                            <div className="interact">
+                                <div className="comments">
+                                    <h3>Comments:</h3>
+                                    <ul>
+                                        {comments.map(comments => (
+                                            <li className="comment-item" key={comments.id}>
+                                                <img className="avatar" src={comments.user_avatar} alt="Avatar" />
+                                                <div className="comment-content">
+                                                    <h5> {comments.user_name} </h5>
+                                                    {comments.comment_text}
+                                                </div>
+                                                {String(comments.user_id) === String(userId) && (
+                                                    <>
+                                                        <button className="btn-up-de" onClick={handleDeleteCommentClick(comments.id)}>Delete</button>
+                                                    </>
 
 
-                                            )}
+                                                )}
 
-                                        </li>
-                                    ))}
-                                </ul>
-                                <form onSubmit={event => handleCommentSubmit(event, post.id)} className="sub-comment">
-                                    <textarea
-                                        value={newComment}
-                                        onChange={handleCommentChange}
-                                        placeholder="Add a comment..."
-                                    />
-                                    <button type="submit">Send</button>
-                                </form>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    <form onSubmit={event => handleCommentSubmit(event, post.id)} className="sub-comment">
+                                        <textarea
+                                            value={newComment}
+                                            onChange={handleCommentChange}
+                                            placeholder="Add a comment..."
+                                        />
+                                        <button type="submit">Send</button>
+                                    </form>
+                                </div>
+                                <div className="likes">
+                                    <img src={comment.src} className="comment-icon" /> {post.comment}
+                                    <button onClick={handleLike}  >
+                                        <img src={liked ? love.src : unLike.src} className="like-icon" />{post.like}
+                                    </button>
+                                </div>
                             </div>
-                            <div className="likes">
-                                <img src={comment.src} className="comment-icon" /> {post.comment}
-                                <button onClick={handleLike}  >
-                                    <img src={liked ? love.src : unLike.src} className="like-icon" />{post.like}
-                                </button>
-                            </div>
+
                         </div>
-
-                    </div>
-                    <div className="col-sm-4">
-                        <Booking />
+                        <div className="col-sm-4">
+                            <Booking />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

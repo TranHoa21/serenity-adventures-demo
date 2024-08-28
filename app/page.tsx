@@ -6,10 +6,15 @@ import Popular from "@/app/components/home/popularTours";
 import Chooes from "@/app/components/home/chooseUs";
 import Destination from "@/app/components/home/destination";
 import Link from "next/link";
+import Head from 'next/head';
 
 export default function Home() {
   return (
     < >
+      <Head>
+        <title>Serenity Adventures - Explore the Wild World</title>
+        <meta name="description" content="Serenity Adventures offers personalized travel experiences for those seeking adventure and cultural exploration. Discover the wild world with tailored itineraries that promise unforgettable journeys." />
+      </Head>
       <div className={styles.homepage}>
         <div className={styles.box1}>
           <div className={styles.item}>

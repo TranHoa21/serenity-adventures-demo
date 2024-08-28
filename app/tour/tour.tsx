@@ -33,7 +33,7 @@ const MultiSelectWithDB: React.FC<Props> = ({ onPlacesChange, onPrices, onSelect
     useEffect(() => {
         const fetchTourAddresses = async () => {
             try {
-                const response = await axios.get('https://serenity-adventures-demo.onrender.com/api/v1/tour');
+                const response = await axios.get('sever-production-702f.up.railway.app/api/v1/tour');
                 setTourAddresses(response.data);
             } catch (error) {
                 console.error('Error fetching tour addresses:', error);

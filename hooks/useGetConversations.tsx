@@ -20,7 +20,7 @@ const useGetConversations = () => {
         const getConversations = async () => {
             setLoading(true);
             try {
-                const res = await axios.get("https://serenity-adventures-demo.onrender.com/api/v1/user");
+                const res = await axios.get("sever-production-702f.up.railway.app/api/v1/user");
                 const data = await res.data;
                 if (data.error) {
                     throw new Error(data.error);

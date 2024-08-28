@@ -1,19 +1,84 @@
 
-.h-title{
-    text-align: center;
-}
+.bd-container{
+
+    background-color: aliceblue;
+    width: 98vw;
 .box-container{
-    display:flex;
+    .img-tour{
+        width:100%;
+        height:500px;
+        margin-left: auto;
+        margin-right: auto;
+        position:relative;
+        object-fit: cover;
+    }
+    .h-title{
+        text-align: center;
+        position:absolute;
+        color: white;
+        bottom: 40%;
+        left: 7%;
+        padding-bottom: 2%;
+    }
+    .row.icon{
+    .box-icon{
+        display: flex;
+        position:absolute;
+        color: white;
+        bottom: 30%;
+        left: 7%;
+        width:max-content;
+        .item-icon{
+            width: 30px;
+            height:30px;
+        }
+        .item-address{
+            padding-top: 5px ;
+            padding-left: 5px;            
+        }
+      }
+    .box-icon2{
+        display: flex;
+        position:absolute;
+        color: white;
+        bottom: 30%;
+        left: 25%;
+        width:max-content;
+        .item-icon{
+            width: 30px;
+            height:30px;
+        }
+        .item-address{
+            padding-top: 5px ;
+            padding-left: 5px;            
+        }
+      }
+      .box-icon3{
+        display: flex;
+        position:absolute;
+        bottom: 32%;
+        left: 38%;
+        width:max-content;
+        border: 1px solid white;
+        background-color: rgba(240, 248, 255, 0);
+        color: white;
+        padding: 5px 10px;
+        a{
+            color: white;
+            text-decoration: none;
+        }
+      }
+      .box-icon3:hover{
+        color: rgb(255, 255, 255);
+        background-color: black;
+      }
+    }
     .row{
         margin:0;
         .content{
             margin-left: 2%;
             margin-right: 2%;
-            .img-tour{
-                margin-left: 10%;
-                width:70%;
-                height:auto;
-            }
+            
             #content-container{
                 h1{
                     text-align: start;
@@ -24,6 +89,302 @@
     
 
 }
+.title-container{
+    background-color: aliceblue;
+    margin:0;
+    .row.box-title{
+        margin:0;
+        justify-content:center;
+        .col-sm-6.box1{
+            padding: 10% 0;
+            .box-title-title{
+                text-align: start;
+            }
+            .includes{
+                .includes-item{
+                    display:flex;
+                    padding:10px 0;
+                    .includes-item-img{
+                        width:20px;
+                        height:20px;
+                        margin-top: 5px;
+                    }
+                    .includes-item-content{
+                        padding:0px 10px;
+                        margin:0;
+                    }
+                }
+            }
+            .introduce{
+                padding-top: 10px;
+                font-weight: 450;
+            }
+            .btn-booknow{
+                width:350px;
+                margin:40px 0;
+                padding:15px;
+                font-size: 120%;
+                font-weight: bold;
+                color:white;
+                border: 1px solid black;
+                background-color: black;
+                a{
+                    color: white;
+                    text-decoration: none;
+                }
+            }
+        }
+        .col-sm-4.box2{
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            background-color: white;
+            margin: 3% 3% 5% 3%;
+            text-align: center;
+            padding-bottom: 5%;
 
+            .profile-sammy{
+                width:80%;
+                height:auto;
+                object-fit: cover;
+                padding-top: 40px;
+            }
+            .profile-sammy-title{
+                padding-top: 15px;
+            }
+            .phonenumber-sammy{
+                color:rgb(226, 128, 0);
+                padding-top: 15px;
+            }
+            .star-box{
+                display:flex;
+                justify-content: center;
+                padding-bottom: 20px;
+                .star-icon{
+                    width:24px;
+                    height:24px;
+                    padding:1px;
+
+                }
+            }
+            .testimonials{
+                font-size: 120%;
+            }
+        }
+       
+    }
+    
+}
+.mapday-bg{
+    position:relative;
+    z-index: 1;
+    .image-bg{
+        width:98.5vw;
+        height:auto;
+    }
+    .includes2{
+        position:absolute;
+        bottom:45%;
+        left: 50%; /* Đặt vị trí ở giữa theo chiều ngang */
+        transform: translateX(-50%); 
+        color:white;
+        font-weight: bold;
+        font-size: 500%;
+        padding: 20px;
+        border-bottom: 5px solid white;
+        
+    }
+}
+.includes-container{
+    position: relative; 
+    margin-top: -50px;
+    z-index: 2; 
+    .row.includes-box{
+     display: flex ;
+     justify-content: center;
+     margin:0;
+     .col-sm-2.includes-item{
+        padding: 20px;
+        text-align: center;
+        margin: 0 1%;
+        border: 1px solid black;
+        background-color: rgb(206, 206, 206);
+        padding: 3% 0;
+        .includes-img{
+            width: 30px;
+            height: 30px;
+            margin-bottom: 3px;
+        }
+        .includes-content{
+            margin:0;
+        }
+     }
+    }
+    .all-itineraries{
+        text-align: center;
+        padding: 50px 30px;
+    }
+    .btn-box{
+        display:flex;
+        justify-content: center;
+        .btn-customize{
+            padding: 1% 7%;
+            border: 1px solid black;
+            background-color: black;
+            color:white;
+            margin-bottom: 5%;
+        }
+    }
+
+    
+}
+.itinerary-box{
+    position: relative; 
+    .itinerary-bg{
+        width:98.5vw;
+        height:auto;
+    }
+    .itinerary-title{
+        position:absolute;
+        bottom:45%;
+        left: 50%; /* Đặt vị trí ở giữa theo chiều ngang */
+        transform: translateX(-50%);
+        color:white;
+        font-weight: bold;
+        font-size: 500%;
+        padding: 20px;
+        border-bottom: 5px solid white;
+        
+    }
+}
+}
+.day-title.container{
+    
+    .row.day-title{
+        display: flex ;
+        margin:0;
+        justify-content: center;
+        .col-sm-2.day-title-item{
+            text-align: center;
+            margin:2%;
+            border: 1px solid black;
+            background-color: rgb(206, 206, 206);
+            padding: 3% 2%;
+                }
+    }
+}
+.tourdata-container{
+    padding: 7% 0;
+    .tourdata-title{
+        margin-left: 10%;
+        width:80%;
+    }
+    .row.tourdata{
+        margin:0;
+        display:flex;
+        background-color: white;
+        width:80%;
+        margin-left: auto;
+        margin-right: auto;
+        .col-sm-8.toudata-data{
+            padding:2%;
+            .image-day{
+                width:90%;
+                height:auto;
+                object-fit: cover;
+            }
+            .content-data{
+                padding-top: 15px;
+            }
+        }
+        .col-sm-4.toudata-data{
+            padding:2%;
+            .image-hotel{
+                width:100%;
+                height:auto;
+                object-fit: cover;
+            }
+            .name-hotel{
+                padding: 10px ;
+                background-color: black;
+                color:white;
+                margin: 20px 0;
+            }
+            .hotel-data{
+             padding: 10px ;
+             border-left: 1px solid black;
+             border-right: 1px solid black;
+            }
+        }
+    }
+}
+
+.call-us.container{
+    width: 100%;
+    .call-us-title{
+        text-align: center;
+        padding: 10px 0;
+    }
+    .call-us-data{
+        text-align: center;
+        padding: 5px 0;
+
+    }
+    .call-us-phonenumber{
+        text-align: center;
+        padding: 10px 0;
+
+    }
+    .btn-booknow.call-us{
+        width:350px;
+        margin:40px auto;
+        padding:15px;
+        font-size: 120%;
+        font-weight: bold;
+        color:white;
+        border: 1px solid black;
+        background-color: black;
+        text-align: center;
+        display:flex;
+        align-items: center;
+        a{
+            color: white;
+            text-decoration: none;
+            margin-left: auto;
+            margin-right: auto;
+            }
+    }
+}
+.why-travel{
+    padding: 3% 0;
+    background-color: white;
+    .why-travel-title{
+        text-align: center;
+    }
+    .why-travel-container{
+        display:flex;
+        padding: 0 2%;
+        .why-travel-box.row{
+            display:flex;
+            margin: 2% 0;
+            justify-content: center;
+            .col-sm-3.why-travel-item{
+                .why-travel-item-image{
+                    width: 95%;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: 160px;
+                }
+                .why-travel-item-title{
+                    text-align: center;
+                    padding: 15px 0;
+
+                }
+                .why-travel-item-content{
+                    text-align: center;
+
+                }
+            }
+        }
+    }
+}
 
 
