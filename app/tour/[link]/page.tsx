@@ -120,9 +120,7 @@ const TourDetail = () => {
                                     <p className="includes-item-content">World class safari destinatians for ultimate game viewing</p>
                                 </div>
                             </div>
-                            <div className="introduce">
-                                {tour.introduce}
-                            </div>
+                            <div className="introduce" dangerouslySetInnerHTML={sanitizeContent(tour.introduce)} />
                             <button className="btn-booknow" ><a href="/booking">BOOK NOW</a></button>
                         </div>
                         <div className="col-sm-4 box2">
