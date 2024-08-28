@@ -5,6 +5,7 @@ import axios from 'axios';
 import "@/app/styles/rwanda/safari.scss";
 import Link from 'next/link';
 import Head from 'next/head';
+require('dotenv').config();
 interface Tour {
     id: number;
     image: string;
@@ -19,7 +20,8 @@ const UgandaLuxury = () => {
     const [tours, setTours] = useState<Tour[]>([]);
 
     useEffect(() => {
-        axios.get<Tour[]>('sever-production-702f.up.railway.app/api/v1/tour') // Thêm kiểu dữ liệu cho response.data
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        axios.get<Tour[]>(`${apiUrl}/tour`) // Thêm kiểu dữ liệu cho response.data
             .then(response => {
                 // Lọc các tour có places_id là 1
                 const filteredTours = response.data.filter(tour => tour.places_name === "Uganda Honey Moon");

@@ -9,7 +9,8 @@ import email from "@/public/img/email_11840146.png";
 import day from "@/public/img/calendar_7614517.png"
 import phone from "@/public/img/call_3687004.png"
 import tour from "@/public/img/tour-guide_9682036.png";
-import { getAuthCookie } from "@/utils/cookies"
+import { getAuthCookie } from "@/utils/cookies";
+require('dotenv').config();
 interface PaymentProps {
     onOkButtonClick: () => void;
     onHidePayment: () => void;
@@ -37,13 +38,14 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
             throw new Error('Failed to create PayPal order');
         }
     };
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     const createOrder = async (totalAmount: string) => {
         console.log("Total amount:", totalAmount);
         const amount = parseFloat(totalAmount.replace(/[$,]/g, '')).toFixed(2);
         console.log("check:", amount);
 
         try {
-            const response = await axios.post('sever-production-702f.up.railway.app/api/v1/payment/create-order', { totalAmount: amount }); // Gửi giá trị totalAmount dưới dạng object
+            const response = await axios.post(`${apiUrl}/payment/create-order`, { totalAmount: amount }); // Gửi giá trị totalAmount dưới dạng object
             const orderId = response.data.message;
             return orderId;
         } catch (error: any) {
@@ -61,7 +63,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
         const tourName = Array.isArray(booking.tour) && booking.tour.length > 0 ? booking.tour[0] : '';
 
         if (paymentSuccess || !paymentStatus) {
-            axios.post('sever-production-702f.up.railway.app/api/v1/booking', {
+            axios.post(`${apiUrl}/booking`, {
                 name: booking.name,
                 email: booking.email,
                 start_day: booking.start_day,
@@ -77,7 +79,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
                     console.log(response.data);
                     setBookingSuccess(true);
                     setPayment(true);
-                    return axios.post('sever-production-702f.up.railway.app/api/v1/notification', {
+                    return axios.post(`${apiUrl}/notification`, {
                         userId: userId,
                         bookingId: order_id,
                         message: `The customer has just created a new order ${order_id}`

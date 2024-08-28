@@ -4,7 +4,7 @@ import { setHasNewMessage, selectConversation } from "@/app/store/actions/messAc
 import "@/app/styles/components/conversation.scss";
 import axios from "axios";
 import { removeNotification } from "@/utils/cookies"
-
+require('dotenv').config();
 
 const Conversation = ({ conversation, lastIdx }: any) => {
     const dispatch = useDispatch();
@@ -16,14 +16,14 @@ const Conversation = ({ conversation, lastIdx }: any) => {
     const receiver = useSelector((state: RootState) => state.mess.messages);
     const messageId = conversation.id
     const handleSelectConversation = async () => {
-
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
         try {
             console.log("check client >>", client)
             dispatch(selectConversation(conversation));
             dispatch(setHasNewMessage(true));
             removeNotification()
-            axios.put(`sever-production-702f.up.railway.app/api/v1/messages/${messageId}`, { client: true })
+            axios.put(`${apiUrl}/messages/${messageId}`, { client: true })
 
         } catch (error) {
             console.error('Error updating message status:', error);

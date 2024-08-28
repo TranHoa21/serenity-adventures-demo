@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation';
 import { Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head';
-
+require('dotenv').config();
 
 const Signup = () => {
     const [name, setName] = useState('');
@@ -54,8 +54,8 @@ const Signup = () => {
 
         const userData = { name, email, password };
         console.log('Sending data to server:', userData);
-
-        axios.post('sever-production-702f.up.railway.app/api/v1/auth/signup', { name, email, password })
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        axios.post(`${apiUrl}/auth/signup`, { name, email, password })
             .then(response => {
                 const { success, message, user } = response.data;
                 console.log(success, message, user);

@@ -5,7 +5,7 @@ import { RootState } from "@/app/store/store";
 import { setMessages } from "@/app/store/actions/messActions";
 import axiosInstance from '@/app/api/axiosInstance'
 import { io, Socket } from "socket.io-client";
-
+require('dotenv').config();
 
 
 interface Notification {
@@ -21,7 +21,7 @@ interface Notification {
 const useSendMessage = () => {
     const [loading, setLoading] = useState(false);
     const [socket, setSocket] = useState<Socket | null>(null);
-
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     useEffect(() => {
         const socketInstance = io("https://serenity-adventures-demo.onrender.com");
 
@@ -43,7 +43,7 @@ const useSendMessage = () => {
     const sendMessage = async (notification: Notification) => {
         setLoading(true);
         try {
-            const res = await axiosInstance.post(`sever-production-702f.up.railway.app/api/v1/user`);
+            const res = await axiosInstance.post(`${apiUrl}/user`);
             const data = await res.data.filter((user: any) => user.role === true);
             const receiverId = data.id
             if (data.error) throw new Error(data.error);

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import "@/app/styles/blog/allPost.scss";
 import love from "@/public/img/heart_833472.png";
 import comment from "@/public/img/message_8799976.png"
+require('dotenv').config();
 
 interface Post {
     id: number;
@@ -25,7 +26,8 @@ const AllPost = () => {
     const postsPerPage = 9;
 
     useEffect(() => {
-        axios.get<Post[]>('sever-production-702f.up.railway.app/api/v1/post')
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        axios.get<Post[]>(`${apiUrl}/post`)
             .then(response => {
                 setPosts(response.data);
             })

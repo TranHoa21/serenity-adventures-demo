@@ -12,7 +12,7 @@ const useGetNotifications = () => {
         const getConversations = async () => {
             setLoading(true);
             try {
-                const res = await axiosInstance.get("sever-production-702f.up.railway.app/api/v1/notificationclient");
+                const res = await axiosInstance.get("notificationclient");
                 const data = await res.data;
                 if (data.error) {
                     throw new Error(data.error);

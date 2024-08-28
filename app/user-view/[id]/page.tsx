@@ -10,7 +10,7 @@ import { MySelect } from "@/app/user-view/gender"
 import { useDispatch } from "react-redux";
 import * as yup from 'yup';
 import Head from 'next/head';
-
+require('dotenv').config();
 interface User {
     id: number;
     avatar: string;
@@ -37,7 +37,7 @@ const UserView = () => {
     const [showAlert, setShowAlert] = useState(false);
     const [alertVariant, setAlertVariant] = useState('success');
     const [validation, setValidation] = useState(false);
-
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     useEffect(() => {
         if (user) {
             setName(user.name);
@@ -98,7 +98,7 @@ const UserView = () => {
 
     const fetchData = () => {
         if (id) {
-            axios.get<User>(`sever-production-702f.up.railway.app/api/v1/user/${id}`)
+            axios.get<User>(`${apiUrl}/user/${id}`)
                 .then(response => {
 
                     setUser(response.data);
@@ -148,7 +148,7 @@ const UserView = () => {
                 formData.append('file', avatar);
             }
 
-            const response = await axios.put(`sever-production-702f.up.railway.app/api/v1/user/${id}`, formData, {
+            const response = await axios.put(`${apiUrl}/user/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -189,7 +189,7 @@ const UserView = () => {
 
     useEffect(() => {
         if (id) {
-            axios.get<User>(`sever-production-702f.up.railway.app/api/v1/user/${id}`)
+            axios.get<User>(`${apiUrl}/user/${id}`)
                 .then(response => {
 
                     setUser(response.data);

@@ -7,7 +7,7 @@ import React from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
 import "@/app/styles/user/style.scss";
 import moment from 'moment';
-
+require('dotenv').config();
 import { getAuthCookie } from "@/utils/cookies"
 
 type Props = {};
@@ -36,11 +36,11 @@ export default function Order() {
     const [bookingDetails, setBookingDetails] = useState<Payment | null>(null);
     const [reloadData, setReloadData] = useState(false);
     const { userId } = getAuthCookie();
-
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('sever-production-702f.up.railway.app/api/v1/booking');
+                const response = await axios.get(`${apiUrl}/booking`);
                 const sortedData = response.data
                     .filter((booking: Payment) => String(booking.userId) === String(userId))
                     .sort((a: Payment, b: Payment) => b.id - a.id);
@@ -65,7 +65,7 @@ export default function Order() {
         const id = booking.id;
         console.log("check id >>", id);
         setView(true);
-        axios.get(`sever-production-702f.up.railway.app/api/v1/booking/${id}`)
+        axios.get(`${apiUrl}/booking/${id}`)
             .then(response => {
                 setBookingDetails(response.data);
             })

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "@/app/api/axiosInstance";
-
+require('dotenv').config();
 import { getAuthCookie } from "@/utils/cookies"
 
 interface Conversation {
@@ -16,11 +16,12 @@ const useGetConversations = () => {
     const [loading, setLoading] = useState(false);
     const [conversations, setConversations] = useState([]);
     const { userId } = getAuthCookie();
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     useEffect(() => {
         const getConversations = async () => {
             setLoading(true);
             try {
-                const res = await axios.get("sever-production-702f.up.railway.app/api/v1/user");
+                const res = await axios.get(`${apiUrl}/user`);
                 const data = await res.data;
                 if (data.error) {
                     throw new Error(data.error);

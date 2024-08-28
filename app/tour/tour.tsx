@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Select, { ActionMeta, OnChangeValue } from 'react-select';
 import currency from 'currency.js';
-
+require('dotenv').config();
 interface Tour {
     id: number;
     title: string;
@@ -23,7 +23,7 @@ interface Props {
     onNumTravelersChange: (numTravelers: number) => void;
     totalAmount: currency;
 }
-
+const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 const MultiSelectWithDB: React.FC<Props> = ({ onPlacesChange, onPrices, onSelectePricesTitle, onNumTravelersChange }) => {
     const [selectedOptions, setSelectedOptions] = useState<StateManagedSelect[]>([]);
     const [tourAddresses, setTourAddresses] = useState<Tour[]>([]);
@@ -33,7 +33,7 @@ const MultiSelectWithDB: React.FC<Props> = ({ onPlacesChange, onPrices, onSelect
     useEffect(() => {
         const fetchTourAddresses = async () => {
             try {
-                const response = await axios.get('sever-production-702f.up.railway.app/api/v1/tour');
+                const response = await axios.get(`${apiUrl}/tour`);
                 setTourAddresses(response.data);
             } catch (error) {
                 console.error('Error fetching tour addresses:', error);

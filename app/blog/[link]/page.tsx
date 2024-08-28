@@ -12,6 +12,7 @@ import { likePost, unlikePost } from '@/app/store/actions/postActions';
 import Booking from "@/app/tour/booking"
 import { getAuthCookie } from "@/utils/cookies"
 import Head from 'next/head';
+require('dotenv').config();
 interface Post {
     id: number;
     title: string;
@@ -60,7 +61,8 @@ const TourDetail = () => {
 
     useEffect(() => {
         if (link) {
-            axios.get<Post>(`sever-production-702f.up.railway.app/api/v1/post/${link}`)
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+            axios.get<Post>(`${apiUrl}/post/${link}`)
                 .then(response => {
                     setPost(response.data);
                     setLoading(false);
@@ -69,7 +71,7 @@ const TourDetail = () => {
                         container.innerHTML = response.data.content;
                     }
                     const postId = response.data.id;
-                    axios.get(`sever-production-702f.up.railway.app/api/v1/post/${postId}/like/${userId}`)
+                    axios.get(`${apiUrl}/post/${postId}/like/${userId}`)
                         .then(response => {
                             setLiked(response.data.liked);
                             console.log("check >>>", liked)
@@ -77,7 +79,7 @@ const TourDetail = () => {
                         .catch(error => {
                             console.error('Lỗi khi lấy danh sách bình luận:', error);
                         });
-                    axios.get<Comment[]>(`sever-production-702f.up.railway.app/api/v1/post/${postId}/comments`)
+                    axios.get<Comment[]>(`${apiUrl}/post/${postId}/comments`)
                         .then(response => {
                             setComments(response.data);
                         })
@@ -90,7 +92,7 @@ const TourDetail = () => {
                     console.error('Lỗi khi lấy thông tin tour:', error);
                     setLoading(false);
                 });
-            axios.get<User>(`sever-production-702f.up.railway.app/api/v1/user/${userId}`)
+            axios.get<User>(`${apiUrl}/user/${userId}`)
                 .then(response => {
                     setAvatar(response.data.avatar);
                 })
@@ -121,12 +123,14 @@ const TourDetail = () => {
     const handleCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
         setNewComment(event.target.value);
     };
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
     const handleCommentSubmit = (event: FormEvent, postId: number) => {
         const userId = user.id;
         const userAvatar = avatar;
         const userName = user.name;
         event.preventDefault();
-        axios.post(`sever-production-702f.up.railway.app/api/v1/post/${postId}/comments/${userId}`, { content: newComment, userAvatar, userName, userId })
+        axios.post(`${apiUrl}/post/${postId}/comments/${userId}`, { content: newComment, userAvatar, userName, userId })
             .then(response => {
                 const newComment = response.data;
                 setComments(prevComments => [...prevComments, newComment]);
@@ -138,7 +142,7 @@ const TourDetail = () => {
     };
 
     const handleDeleteComment = (commentId: number) => {
-        axios.delete(`sever-production-702f.up.railway.app/api/v1/post/comments/${commentId}`)
+        axios.delete(`${apiUrl}/post/comments/${commentId}`)
             .then(response => {
                 // Xóa comment khỏi state
                 setComments(prevComments => prevComments.filter(comment => comment.id !== commentId));
@@ -154,7 +158,7 @@ const TourDetail = () => {
         };
     };
     const handleUpdateComment = (commentId: number) => {
-        axios.put(`sever-production-702f.up.railway.app/api/v1/comments/${commentId}`)
+        axios.put(`${apiUrl}/comments/${commentId}`)
             .then(response => {
                 // Cập nhật comment thành công, bạn có thể thực hiện các hành động khác ở đây nếu cần
                 console.log('Cập nhật comment thành công');
@@ -176,7 +180,7 @@ const TourDetail = () => {
 
         if (liked) {
             axios
-                .delete(`sever-production-702f.up.railway.app/api/v1/post/${postId}/like/${userId}`)
+                .delete(`${apiUrl}/post/${postId}/like/${userId}`)
                 .then(response => {
                     dispatch(unlikePost(postId, userId));
                     setLiked(false);
@@ -188,7 +192,7 @@ const TourDetail = () => {
                 });
         } else {
             axios
-                .post(`sever-production-702f.up.railway.app/api/v1/post/${postId}/like/${userId}`, { postId, userId })
+                .post(`${apiUrl}/post/${postId}/like/${userId}`, { postId, userId })
                 .then(response => {
                     dispatch(likePost(postId, userId));
                     setLiked(true);

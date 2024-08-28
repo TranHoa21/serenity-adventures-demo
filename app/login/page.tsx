@@ -11,6 +11,7 @@ import Link from "next/link";
 import axiosInstance from "@/app/api/axiosInstance"
 import Cookies from 'js-cookie';
 import Head from 'next/head';
+require('dotenv').config();
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -26,12 +27,12 @@ const Login = () => {
     const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
     };
-
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
 
         try {
-            const response = await axiosInstance.post('sever-production-702f.up.railway.app/api/v1/auth/login', {
+            const response = await axiosInstance.post(`${apiUrl}/auth/login`, {
                 email,
                 password,
             });

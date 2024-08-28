@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from "next/link";
 import sanitizeHtml from 'sanitize-html';
 import Head from 'next/head';
+require('dotenv').config();
 interface Tour {
     id: number;
     title: string;
@@ -42,11 +43,12 @@ const TourDetail = () => {
     const [tourData, setTourData] = useState<TourData[]>([]);
 
     useEffect(() => {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
         if (link) {
-            axios.get<Tour>(`sever-production-702f.up.railway.app/api/v1/tour/${link}`)
+            axios.get<Tour>(`${apiUrl}/tour/${link}`)
                 .then(response => {
                     setTour(response.data);
-                    return axios.get<TourData[]>(`sever-production-702f.up.railway.app/api/v1/tourdata/${response.data.title}`);
+                    return axios.get<TourData[]>(`${apiUrl}/tourdata/${response.data.title}`);
                 })
                 .then(response => {
                     setTourData(response.data);

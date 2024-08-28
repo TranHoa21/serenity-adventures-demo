@@ -6,7 +6,7 @@ import { extractTime } from "@/utils/extractTime";
 import "@/app/styles/components/message.scss"
 import axios from "axios";
 import { useEffect, useState } from "react";
-
+require('dotenv').config();
 
 interface Message {
     senderId: number;
@@ -31,12 +31,12 @@ const Message: React.FC<{ message: Message }> = ({ message }) => {
     const bubbleBgColor = fromMe ? "bg-blue-500" : "";
     const shakeClass = message.shouldShake ? "shake" : "";
 
-
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     useEffect(() => {
         if (user) {
             const fetchUser = async () => {
                 try {
-                    const response = await axios.get(`sever-production-702f.up.railway.app/api/v1/user/${message.senderId}`);
+                    const response = await axios.get(`${apiUrl}/user/${message.senderId}`);
                     const userData = response.data;
 
                     setStoredUser(userData);

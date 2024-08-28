@@ -5,7 +5,7 @@ import { RootState } from "@/app/store/store";
 import { setMessages } from "@/app/store/actions/messActions";
 import axiosInstance from '@/app/api/axiosInstance'
 import { io, Socket } from "socket.io-client";
-
+require('dotenv').config();
 
 interface Message {
     content: string;
@@ -19,7 +19,7 @@ const useSendMessage = () => {
     const { selectedConversation } = useSelector((state: RootState) => state.mess);
     const { messages } = useSelector((state: RootState) => state.mess);
     const [socket, setSocket] = useState<Socket | null>(null);
-
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     useEffect(() => {
         const socketInstance = io("https://serenity-adventures-demo.onrender.com");
 
@@ -42,7 +42,7 @@ const useSendMessage = () => {
         setLoading(true);
         try {
             if (!selectedConversation?.id) return;
-            const res = await axiosInstance.post(`sever-production-702f.up.railway.app/api/v1/messages/send/${selectedConversation.id}`, message);
+            const res = await axiosInstance.post(`${apiUrl}/messages/send/${selectedConversation.id}`, message);
             const data = await res.data;
             if (data.error) throw new Error(data.error);
             console.log("check mess by api >>>", data)

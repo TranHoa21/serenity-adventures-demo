@@ -7,7 +7,7 @@ export const UPDATE_ONLINE_USERS = 'UPDATE_ONLINE_USERS';
 
 // Action creators
 export const connectSocket = (userId: any) => {
-    const socket = io("sever-production-702f.up.railway.app/", {
+    const socket = io("https://sever-production-702f.up.railway.app/", {
         query: {
             userId: userId,
         },

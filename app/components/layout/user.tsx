@@ -3,6 +3,7 @@ import anonAvatar from '@/public/img/user_1177568.png';
 import axios from 'axios';
 import '@/app/styles/layout/header.scss';
 import { useDispatch } from 'react-redux';
+require('dotenv').config();
 
 interface User {
     avatar?: string;
@@ -21,10 +22,12 @@ const User: React.FC<UserProps> = ({ isLoggedIn, user, userId }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+
         if (user) {
             const fetchUser = async () => {
                 try {
-                    const response = await axios.get(`sever-production-702f.up.railway.app/api/v1/user/${userId}`);
+                    const response = await axios.get(`${apiUrl}/user/${userId}`);
                     const userData = response.data;
 
                     setStoredUser(userData);

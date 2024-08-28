@@ -12,7 +12,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import "@/app/styles/home/slider1.scss";
-
+require('dotenv').config();
 
 interface Tour {
     id: number;
@@ -26,9 +26,9 @@ interface Tour {
 
 const RwandaHoneyMoon = () => {
     const [tours, setTours] = useState<Tour[]>([]);
-
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
     useEffect(() => {
-        axios.get<Tour[]>('sever-production-702f.up.railway.app/api/v1/tour') // Thêm kiểu dữ liệu cho response.data
+        axios.get<Tour[]>(`${apiUrl}/tour`) // Thêm kiểu dữ liệu cho response.data
             .then(response => {
                 // Lọc các tour có places_id là 1
                 const filteredTours = response.data.filter(tour => tour.places_name === "Vocational Tours in Rwanda");

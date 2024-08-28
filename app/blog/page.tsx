@@ -11,6 +11,7 @@ import axios from 'axios';
 import "@/app/styles/blog/blog.scss";
 import AllPost from "@/app/blog/allPost";
 import Link from "next/link";
+require('dotenv').config();
 
 interface Post {
     id: number;
@@ -24,7 +25,8 @@ const Blog = () => {
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
-        axios.get<Post[]>('sever-production-702f.up.railway.app/api/v1/post')
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        axios.get<Post[]>(`${apiUrl}/post`)
             .then(response => {
                 setPosts(response.data);
             })

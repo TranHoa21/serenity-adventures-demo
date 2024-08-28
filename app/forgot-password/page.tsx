@@ -3,7 +3,7 @@
 import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react';
 import '@/app/styles/login/Login.scss';
 import { Alert } from 'react-bootstrap';
-import Link from "next/link";
+require('dotenv').config();
 import axiosInstance from "@/app/api/axiosInstance"
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';
@@ -36,13 +36,14 @@ const Forgot = () => {
     const handleConfirmPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setConfirmPassword(e.target.value);
     };
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
 
         try {
-            const response = await axiosInstance.post('sever-production-702f.up.railway.app/api/v1/auth/send-verification-email', {
+            const response = await axiosInstance.post(`${apiUrl}/auth/send-verification-email`, {
                 email,
             });
             const data = response.data
@@ -62,7 +63,7 @@ const Forgot = () => {
             return;
         }
         try {
-            const response = await axiosInstance.post('sever-production-702f.up.railway.app/api/v1/auth/verify-password-reset-code', {
+            const response = await axiosInstance.post(`${apiUrl}/auth/verify-password-reset-code`, {
                 email, resetCode
             });
             const data = response.data
@@ -79,7 +80,7 @@ const Forgot = () => {
     const handleSubmitUpdatePassword = async (e: FormEvent) => {
         e.preventDefault();
         try {
-            const response = await axiosInstance.post('sever-production-702f.up.railway.app/api/v1/auth/verify-password-reset-code', {
+            const response = await axiosInstance.post(`${apiUrl}/auth/verify-password-reset-code`, {
                 email, newPassword
             });
             setSignupSuccess(true)

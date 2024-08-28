@@ -4,7 +4,7 @@ import { setHasNewNotification, selectConversation } from "@/app/store/actions/m
 import "@/app/styles/components/notification.scss"
 import axios from "axios";
 import { removeShowChat } from "@/utils/cookies"
-
+require('dotenv').config();
 
 
 const Notifications = ({ notification, lastIdx }: any) => {
@@ -14,11 +14,11 @@ const Notifications = ({ notification, lastIdx }: any) => {
     const onlineUsers = useSelector((state: RootState) => state.socket.onlineUsers);
     const isOnline = onlineUsers.includes(notification.id);
     const messageId = notification.id
-
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
     const handleSelectConversation = async () => {
         try {
-            axios.put(`sever-production-702f.up.railway.app/api/v1/notificationclient/${messageId}`, { status: true })
+            axios.put(`${apiUrl}/notificationclient/${messageId}`, { status: true })
                 .then(response => {
                     dispatch(setHasNewNotification(false));
                     removeShowChat()
