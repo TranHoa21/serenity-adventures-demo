@@ -2,7 +2,8 @@
     height: 900px;
     background-image: linear-gradient(180deg,rgba(0, 0, 0,1), rgba(255, 255, 255, 0)),
     url('/img/nen3.jpg');
-    h1{
+    overflow-x: hidden;
+    .w-c-title{
         display:flex;
         justify-content:center;
         color: white;
@@ -13,30 +14,30 @@
         margin:0px !important;
         justify-content: center;
         height: 50%;
-
-        .item{
-            margin: 0 2%;
-            color: white;
+        .choose.row{
             display:flex;
+            margin:0;
             justify-content: center;
-            position: relative;
-
-        .icon{
-            
-            width: 80px;
-            height: 80px;
+            .item.col-sm-2{
+                margin: 0 2%;
+                color: white;
+                text-align: center;
+            .icon{
+                
+                width: 80px;
+                height: 80px;
+            }
+            h3{
+              padding: 10px;
+              font-size: 90%;
+            }
+            h6{
+                padding: 10px;
+                font-size: 80%;
+            }
         }
-        h3{
-            position: absolute;
-            bottom: 60%;
         }
-        h6{
-            position: absolute;
-            top: 40%;
-            font-size: 15px;
-            text-align: center;
-        }
-    }
+        
     }
     .ctnt{
         background-color: rgba(165, 165, 165, 0.63);
@@ -47,21 +48,22 @@
         padding: 10px;
         border-radius: 20px;
         height:max-content;
-        h1{
+        .ctnt-title{
             padding:2%;
         }
-        h5{
+        .ctnt-content{
             text-align: center;
         }
         a{
             text-decoration: none;
         }
-        .search{
+        .ctnt-btn{
             display:flex;
             width:max-content;
             margin-top: 3%;
             margin-bottom: 5%;
-            margin-left: 45%;
+            margin-left: auto;  /* Adjusted */
+            margin-right: auto; /* Adjusted */
             padding:10px;
             border:none;
             border: 1px solid rgb(70, 70, 70);
@@ -70,7 +72,7 @@
             color:white;
             transition: background-color 0.3s ease, box-shadow 0.3s ease;
           }
-          .search:hover{
+          .ctnt-btn:hover{
             background-color: #45a049; /* Màu nền mới khi di chuột qua */
             box-shadow: 0 0 10px #45a049, 0 0 20px #45a049, 0 0 30px #45a049;
           }
@@ -86,9 +88,8 @@
         padding-top: 15%;
         background-image: linear-gradient(180deg,rgba(0, 0, 0,1), rgba(255, 255, 255, 0)),
         url('/img/nen3.jpg');
-        h1{
-            display:flex;
-            justify-content:center;
+        .w-c-title{
+            text-align: center;
             color: white;
         }
         .choo{
@@ -97,7 +98,30 @@
             margin-bottom: 5%;
             justify-content: center;
             height:30%;
-
+            .choose.row{
+                display:flex;
+                margin:0;
+                justify-content: center;
+                .item.col-sm-2{
+                    margin: 0 2%;
+                    color: white;
+                    text-align: center;
+                .icon{
+                    
+                    width: 15px;
+                    height: 15px;
+                }
+                
+                h3{
+                  padding: 3px 1px ;
+                  font-size: 50%;
+                }
+                h6{
+                    padding: 3px 1px;
+                    font-size: 40%;
+                }
+            }
+            }
     
             .item{
                 width:20%;
@@ -110,14 +134,13 @@
                 position: relative;
     
             .icon{
-                width: 30px;
-                height: 30px;
+                width: 15px;
+                height: 15px;
             }
             h3{
                 position: absolute;
                 bottom: 45%;
                 font-size: 60%;
-
             }
             h6{
                 position: absolute;
@@ -136,30 +159,34 @@
             margin-top: 10%;
             border-radius: 10px;
             height:max-content;
-            h1{
+            .ctnt-title{
                 padding:2%;
                 font-size: 70%;
                 text-align: center;
 
             }
-            h5{
+            .ctnt-content{
                 text-align: center;
                 font-size: 60%;
 
             }
-            .search{
+           
+            .ctnt-btn{
                 display:flex;
+                width:max-content;
                 margin-top: 3%;
                 margin-bottom: 5%;
-                margin-left: 35%;
-                padding:5px;
+                margin-left: auto;  /* Adjusted */
+                margin-right: auto; /* Adjusted */
+                padding:10px;
                 border:none;
+                border: 1px solid rgb(70, 70, 70);
                 border-radius: 20px;
                 cursor: pointer;
-                transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển đổi màu nền và shadow */
-        
+                color:white;
+                transition: background-color 0.3s ease, box-shadow 0.3s ease;
               }
-              .search:hover{
+              .ctnt-btn:hover{
                 background-color: #45a049; /* Màu nền mới khi di chuột qua */
                 box-shadow: 0 0 10px #45a049, 0 0 20px #45a049, 0 0 30px #45a049;
               }
