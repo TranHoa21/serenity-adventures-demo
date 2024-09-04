@@ -3,15 +3,21 @@
     .title{
         margin: 5% ;
     }
-    .row{
+    .row.destination-box{
         width:100%;
         margin:0;
         display:flex;
-        .col-sm-5{
+        .col-sm-5.destination-item{
             margin-left:5% ;
             padding: 0;
+            .destination-item-title{
+                font-size: 120%;
+            }
+            .destination-item-data{
+                font-size: 100%;
+            }
         }
-        .box2{
+        .col-sm-5.box2{
          margin-top: 2%;
          border: 1px solid rgb(158, 158, 158);
          height: max-content;
@@ -29,6 +35,7 @@
                 b{
                     width:40%;
                 }
+                
             }
             .setItem{
                 border-bottom: 1px solid rgb(158, 158, 158);
@@ -43,6 +50,66 @@
         margin-right: auto;
         .title{
             text-align: center;
+        }
+    }
+}
+
+@media (max-width: 540px){
+    .destination{
+        margin-bottom: 2%;
+        .title{
+            margin: 15px ;
+        }
+        .row.destination-box{
+            width:100%;
+            margin:0;
+            display:flex;
+            .col-sm-5.destination-item{
+                margin-left:5% ;
+                padding: 0;
+                .destination-item-title{
+                    font-size: 90%;
+                }
+                .destination-item-data{
+                    font-size: 60%;
+                }
+            }
+            .col-sm-5.box2{
+             margin-top: 2%;
+             border: 1px solid rgb(158, 158, 158);
+             height: max-content;
+             border-radius: 20px;
+             .box3{
+                padding: 2%;
+                .item{ 
+                    display:flex;
+                    margin-top: 6%;
+                    .icon{
+                        width:15px;
+                        height:15px;
+                        margin: 0 3px ;
+                    }
+                    b{
+                        width:20px;
+                    }
+                    p{
+                        font-size: 40%;
+                    }
+                }
+                .setItem{
+                    border-bottom: 1px solid rgb(158, 158, 158);
+                }
+                
+             }
+            }
+        }
+        .Content{
+            width:90%;
+            margin-left: auto;
+            margin-right: auto;
+            .title{
+                text-align: center;
+            }
         }
     }
 }

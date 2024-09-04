@@ -14,10 +14,10 @@ const Destination = () => {
             </Head>
             <div className="destination">
                 <h1 className="title">Uganda</h1>
-                <div className="row">
-                    <div className="col-sm-5">
-                        <h2>Visit Uganda</h2>
-                        <p>
+                <div className="row destination-box">
+                    <div className="col-sm-5 destination-item">
+                        <h2 className="destination-item-title">Visit Uganda</h2>
+                        <p className="destination-item-data">
                             Uganda is a landlocked country with Majestic mountains, endless forests, and diverse wildlife life have made a unique beauty of the “green pearl of Africa”. The pristine beauty of Uganda gives visitors a pleasant, comfortable feeling, helping to relieve and re-energize themselves.
                             <br />
                             Hiking with Gorilla through the jungle, wildlife safaris, taking a trip to Griffin Falls Camp, Legendary Nile Rafting and countless other exciting activities await you!
