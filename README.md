@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Serenity Adventures
 
-## Getting Started
+[Serenity Adventures](https://serenity-adventures-demo.vercel.app) is a unique platform that offers amazing travel experiences, focusing on adventures in nature and exploring local cultures.
 
-First, run the development server:
+## Introduction
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Serenity Adventures provides users with specially designed tours that offer relaxation and new experiences. From outdoor activities like hiking, mountain climbing, and cycling to cultural immersion, Serenity Adventures always puts customers first, ensuring every trip creates unforgettable memories.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Table of Contents
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Installation
 
-## Learn More
+To install and run Serenity Adventures on your local machine, please follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. Clone this repository:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    ```bash
+    git clone https://github.com/yourusername/serenity-adventures.git
+    ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Navigate into the project directory:
 
-## Deploy on Vercel
+    ```bash
+    cd serenity-adventures
+    ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. Install the dependencies:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    ```bash
+    npm install
+    ```
+
+4. Configure environment variables by creating a `.env` file and filling in the necessary information (e.g., API keys):
+
+    ```plaintext
+    NEXT_PUBLIC_API_URL=your_api_url
+    NEXT_PUBLIC_MAPBOX_API_KEY=your_mapbox_api_key
+    ```
+
+5. Run the application in development mode:
+
+    ```bash
+    npm run dev
+    ```
+
+6. The application will be running at `http://localhost:3000`.
+
+## Usage
+
+Serenity Adventures allows users to browse available adventure trips, learn detailed information about each trip, and book tours online. Key features include:
+
+- Viewing a list of available tours and activities.
+- Learning detailed information about each trip, including itinerary, pricing, and terms.
+- Booking trips online with secure payment options.
+
+## Project Structure
+
+```plaintext
+- `pages/` - Contains files related to routing and pages of the application.
+- `components/` - Contains shared UI components.
+- `public/` - Contains static files such as images and favicon.
+- `styles/` - Contains CSS/SCSS files for the entire project.
+- `utils/` - Contains utility and helper functions.
