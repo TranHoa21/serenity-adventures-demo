@@ -28,7 +28,7 @@ const Login = () => {
     const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
     };
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const apiUrl = https://sever-b483.onrender.com/api/v1;
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
 

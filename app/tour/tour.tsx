@@ -24,7 +24,7 @@ interface Props {
     onNumTravelersChange: (numTravelers: number) => void;
     totalAmount: currency;
 }
-const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+const apiUrl = https://sever-b483.onrender.com/api/v1;
 const MultiSelectWithDB: React.FC<Props> = ({ onPlacesChange, onPrices, onSelectePricesTitle, onNumTravelersChange }) => {
     const [selectedOptions, setSelectedOptions] = useState<StateManagedSelect[]>([]);
     const [tourAddresses, setTourAddresses] = useState<Tour[]>([]);

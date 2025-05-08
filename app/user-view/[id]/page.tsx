@@ -38,16 +38,16 @@ const UserView = () => {
     const [showAlert, setShowAlert] = useState(false);
     const [alertVariant, setAlertVariant] = useState('success');
     const [validation, setValidation] = useState(false);
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    useEffect(() => {
-        if (user) {
-            setName(user.name);
-            setEmail(user.email);
-            setPhoneNumber(user.phonenumber);
-            setAge(user.age);
-            setGender(user.gender);
-        }
-    }, [user]);
+    const apiUrl = https://sever-b483.onrender.com/api/v1;
+        useEffect(() => {
+            if (user) {
+                setName(user.name);
+                setEmail(user.email);
+                setPhoneNumber(user.phonenumber);
+                setAge(user.age);
+                setGender(user.gender);
+            }
+        }, [user]);
     const handleImageClick = () => {
         inputFileRef.current?.click();
     };

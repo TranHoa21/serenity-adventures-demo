@@ -37,22 +37,22 @@ export default function Order() {
     const [bookingDetails, setBookingDetails] = useState<Payment | null>(null);
     const [reloadData, setReloadData] = useState(false);
     const { userId } = getAuthCookie();
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    useEffect(() => {
-        const fetchData = async () => {
-            try {
-                const response = await axios.get(`${apiUrl}/booking`);
-                const sortedData = response.data
-                    .filter((booking: Payment) => String(booking.userId) === String(userId))
-                    .sort((a: Payment, b: Payment) => b.id - a.id);
-                setData(sortedData);
-            } catch (error) {
-                console.error(error);
-            }
-        };
+    const apiUrl = https://sever-b483.onrender.com/api/v1;
+        useEffect(() => {
+            const fetchData = async () => {
+                try {
+                    const response = await axios.get(`${apiUrl}/booking`);
+                    const sortedData = response.data
+                        .filter((booking: Payment) => String(booking.userId) === String(userId))
+                        .sort((a: Payment, b: Payment) => b.id - a.id);
+                    setData(sortedData);
+                } catch (error) {
+                    console.error(error);
+                }
+            };
 
-        fetchData();
-    }, [reloadData, userId]);
+            fetchData();
+        }, [reloadData, userId]);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;

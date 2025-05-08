@@ -32,23 +32,23 @@ const Message: React.FC<{ message: Message }> = ({ message }) => {
     const bubbleBgColor = fromMe ? "bg-blue-500" : "";
     const shakeClass = message.shouldShake ? "shake" : "";
 
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    useEffect(() => {
-        if (user) {
-            const fetchUser = async () => {
-                try {
-                    const response = await axios.get(`${apiUrl}/user/${message.senderId}`);
-                    const userData = response.data;
+    const apiUrl = https://sever-b483.onrender.com/api/v1;
+        useEffect(() => {
+            if (user) {
+                const fetchUser = async () => {
+                    try {
+                        const response = await axios.get(`${apiUrl}/user/${message.senderId}`);
+                        const userData = response.data;
 
-                    setStoredUser(userData);
-                } catch (error) {
-                    console.error('Lỗi khi lấy thông tin người dùng:', error);
-                }
-            };
+                        setStoredUser(userData);
+                    } catch (error) {
+                        console.error('Lỗi khi lấy thông tin người dùng:', error);
+                    }
+                };
 
-            fetchUser();
-        }
-    }, [user]);
+                fetchUser();
+            }
+        }, [user]);
     return (
         <div className={`chat ${chatClassName}`}>
             <div className='chat-image avatar'>

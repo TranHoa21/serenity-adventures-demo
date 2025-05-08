@@ -39,7 +39,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
             throw new Error('Failed to create PayPal order');
         }
     };
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const apiUrl = https://sever-b483.onrender.com/api/v1;
     const createOrder = async (totalAmount: string) => {
         console.log("Total amount:", totalAmount);
         const amount = parseFloat(totalAmount.replace(/[$,]/g, '')).toFixed(2);

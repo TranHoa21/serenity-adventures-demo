@@ -62,10 +62,10 @@ const TourDetail = () => {
 
     useEffect(() => {
         if (link) {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-            axios.get<Post>(`${apiUrl}/post/${link}`)
+            const apiUrl = https://sever-b483.onrender.com/api/v1;
+                axios.get<Post>(`${apiUrl}/post/${link}`)
                 .then(response => {
-                    setPost(response.data);
+                        setPost(response.data);
                     setLoading(false);
                     const container = document.getElementById('content-container');
                     if (container) {
@@ -74,37 +74,37 @@ const TourDetail = () => {
                     const postId = response.data.id;
                     axios.get(`${apiUrl}/post/${postId}/like/${userId}`)
                         .then(response => {
-                            setLiked(response.data.liked);
+                        setLiked(response.data.liked);
                             console.log("check >>>", liked)
                         })
                         .catch(error => {
-                            console.error('Lỗi khi lấy danh sách bình luận:', error);
+                        console.error('Lỗi khi lấy danh sách bình luận:', error);
                         });
                     axios.get<Comment[]>(`${apiUrl}/post/${postId}/comments`)
                         .then(response => {
-                            setComments(response.data);
+                        setComments(response.data);
                         })
                         .catch(error => {
-                            console.error('Lỗi khi lấy danh sách bình luận:', error);
+                        console.error('Lỗi khi lấy danh sách bình luận:', error);
                         });
                 })
 
                 .catch(error => {
-                    console.error('Lỗi khi lấy thông tin tour:', error);
+                        console.error('Lỗi khi lấy thông tin tour:', error);
                     setLoading(false);
                 });
-            axios.get<User>(`${apiUrl}/user/${userId}`)
+                    axios.get<User>(`${apiUrl}/user/${userId}`)
                 .then(response => {
-                    setAvatar(response.data.avatar);
+                            setAvatar(response.data.avatar);
                 })
                 .catch(error => {
-                    console.error('Lỗi khi lấy thông tin tour:', error);
+                            console.error('Lỗi khi lấy thông tin tour:', error);
                 })
 
 
         } else {
 
-            setLoading(false);
+                            setLoading(false);
         }
     }, [link, liked]);
 
@@ -113,160 +113,160 @@ const TourDetail = () => {
 
 
 
-    if (loading) {
+                        if (loading) {
         return <div>Loading...</div>; // Show loading indicator while fetching data
     }
 
-    if (!post) {
+                        if (!post) {
         return <div>Post not found!</div>; // Show a message if tour is not available
     }
 
-    const handleCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-        setNewComment(event.target.value);
+                        const handleCommentChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+                            setNewComment(event.target.value);
     };
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+                            const apiUrl = https://sever-b483.onrender.com/api/v1;
 
     const handleCommentSubmit = (event: FormEvent, postId: number) => {
         const userId = user.id;
-        const userAvatar = avatar;
-        const userName = user.name;
-        event.preventDefault();
-        axios.post(`${apiUrl}/post/${postId}/comments/${userId}`, { content: newComment, userAvatar, userName, userId })
+                            const userAvatar = avatar;
+                            const userName = user.name;
+                            event.preventDefault();
+                            axios.post(`${apiUrl}/post/${postId}/comments/${userId}`, {content: newComment, userAvatar, userName, userId })
             .then(response => {
                 const newComment = response.data;
                 setComments(prevComments => [...prevComments, newComment]);
-                setNewComment('');
+                            setNewComment('');
             })
             .catch(error => {
-                console.error('Lỗi khi gửi bình luận:', error);
+                                console.error('Lỗi khi gửi bình luận:', error);
             });
     };
 
     const handleDeleteComment = (commentId: number) => {
-        axios.delete(`${apiUrl}/post/comments/${commentId}`)
-            .then(response => {
-                // Xóa comment khỏi state
-                setComments(prevComments => prevComments.filter(comment => comment.id !== commentId));
-                console.log('Xóa comment thành công');
-            })
-            .catch(error => {
-                console.error('Lỗi khi xóa comment:', error);
-            });
+                                axios.delete(`${apiUrl}/post/comments/${commentId}`)
+                                    .then(response => {
+                                        // Xóa comment khỏi state
+                                        setComments(prevComments => prevComments.filter(comment => comment.id !== commentId));
+                                        console.log('Xóa comment thành công');
+                                    })
+                                    .catch(error => {
+                                        console.error('Lỗi khi xóa comment:', error);
+                                    });
     };
     const handleDeleteCommentClick = (commentId: number) => {
         return () => {
-            handleDeleteComment(commentId);
+                                handleDeleteComment(commentId);
         };
     };
     const handleUpdateComment = (commentId: number) => {
-        axios.put(`${apiUrl}/comments/${commentId}`)
-            .then(response => {
-                // Cập nhật comment thành công, bạn có thể thực hiện các hành động khác ở đây nếu cần
-                console.log('Cập nhật comment thành công');
-            })
-            .catch(error => {
-                console.error('Lỗi khi cập nhật comment:', error);
-            });
+                                axios.put(`${apiUrl}/comments/${commentId}`)
+                                    .then(response => {
+                                        // Cập nhật comment thành công, bạn có thể thực hiện các hành động khác ở đây nếu cần
+                                        console.log('Cập nhật comment thành công');
+                                    })
+                                    .catch(error => {
+                                        console.error('Lỗi khi cập nhật comment:', error);
+                                    });
     };
     const handleUpdateCommentClick = (commentId: number) => {
         return () => {
-            handleUpdateComment(commentId);
+                                handleUpdateComment(commentId);
         };
     };
 
-    const handleLike = (event: React.MouseEvent<HTMLButtonElement>) => {
-        event.preventDefault();
-        const postId = post?.id;
-        const userId = user.id;
+                            const handleLike = (event: React.MouseEvent<HTMLButtonElement>) => {
+                                event.preventDefault();
+                                const postId = post?.id;
+                                const userId = user.id;
 
-        if (liked) {
-            axios
-                .delete(`${apiUrl}/post/${postId}/like/${userId}`)
-                .then(response => {
-                    dispatch(unlikePost(postId, userId));
-                    setLiked(false);
-                    console.log("removeLike thành công");
-                    console.log(liked)
-                })
-                .catch(error => {
-                    console.error('Lỗi khi xóa thích:', error);
-                });
+                                if (liked) {
+                                    axios
+                                        .delete(`${apiUrl}/post/${postId}/like/${userId}`)
+                                        .then(response => {
+                                            dispatch(unlikePost(postId, userId));
+                                            setLiked(false);
+                                            console.log("removeLike thành công");
+                                            console.log(liked)
+                                        })
+                                        .catch(error => {
+                                            console.error('Lỗi khi xóa thích:', error);
+                                        });
         } else {
-            axios
-                .post(`${apiUrl}/post/${postId}/like/${userId}`, { postId, userId })
-                .then(response => {
-                    dispatch(likePost(postId, userId));
-                    setLiked(true);
-                    console.log("Like thành công");
-                })
-                .catch(error => {
-                    console.error('Lỗi khi thích bài viết:', error);
-                });
+                                    axios
+                                        .post(`${apiUrl}/post/${postId}/like/${userId}`, { postId, userId })
+                                        .then(response => {
+                                            dispatch(likePost(postId, userId));
+                                            setLiked(true);
+                                            console.log("Like thành công");
+                                        })
+                                        .catch(error => {
+                                            console.error('Lỗi khi thích bài viết:', error);
+                                        });
         }
     };
 
-    return (
-        <>
-            <Head>
-                <title>{post.title} | Discover Unique Travel Experiences | Serenity Adventure Blog</title>
-                <meta name="description" content="Explore {post.title} and get inspired for your next adventure with Serenity Adventure Blog. Read about unique travel experiences, share your thoughts, and engage with our community." />
-            </Head>
+                                return (
+                                <>
+                                    <Head>
+                                        <title>{post.title} | Discover Unique Travel Experiences | Serenity Adventure Blog</title>
+                                        <meta name="description" content="Explore {post.title} and get inspired for your next adventure with Serenity Adventure Blog. Read about unique travel experiences, share your thoughts, and engage with our community." />
+                                    </Head>
 
-            <div>
-                <h1 className="h-title">{post.title}</h1>
-                <div className="box-container">
-                    <div className="row">
-                        <div className="content col-sm-7">
-                            <img className="img-tour" src={post.image} alt={post.title} />
-                            <div id="content-container">{post.content}</div>
-                            <div className="interact">
-                                <div className="comments">
-                                    <h3>Comments:</h3>
-                                    <ul>
-                                        {comments.map(comments => (
-                                            <li className="comment-item" key={comments.id}>
-                                                <img className="avatar" src={comments.user_avatar} alt="Avatar" />
-                                                <div className="comment-content">
-                                                    <h5> {comments.user_name} </h5>
-                                                    {comments.comment_text}
+                                    <div>
+                                        <h1 className="h-title">{post.title}</h1>
+                                        <div className="box-container">
+                                            <div className="row">
+                                                <div className="content col-sm-7">
+                                                    <img className="img-tour" src={post.image} alt={post.title} />
+                                                    <div id="content-container">{post.content}</div>
+                                                    <div className="interact">
+                                                        <div className="comments">
+                                                            <h3>Comments:</h3>
+                                                            <ul>
+                                                                {comments.map(comments => (
+                                                                    <li className="comment-item" key={comments.id}>
+                                                                        <img className="avatar" src={comments.user_avatar} alt="Avatar" />
+                                                                        <div className="comment-content">
+                                                                            <h5> {comments.user_name} </h5>
+                                                                            {comments.comment_text}
+                                                                        </div>
+                                                                        {String(comments.user_id) === String(userId) && (
+                                                                            <>
+                                                                                <button className="btn-up-de" onClick={handleDeleteCommentClick(comments.id)}>Delete</button>
+                                                                            </>
+
+
+                                                                        )}
+
+                                                                    </li>
+                                                                ))}
+                                                            </ul>
+                                                            <form onSubmit={event => handleCommentSubmit(event, post.id)} className="sub-comment">
+                                                                <textarea
+                                                                    value={newComment}
+                                                                    onChange={handleCommentChange}
+                                                                    placeholder="Add a comment..."
+                                                                />
+                                                                <button type="submit">Send</button>
+                                                            </form>
+                                                        </div>
+                                                        <div className="likes">
+                                                            <img src={comment.src} className="comment-icon" /> {post.comment}
+                                                            <button onClick={handleLike}  >
+                                                                <img src={liked ? love.src : unLike.src} className="like-icon" />{post.like}
+                                                            </button>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
-                                                {String(comments.user_id) === String(userId) && (
-                                                    <>
-                                                        <button className="btn-up-de" onClick={handleDeleteCommentClick(comments.id)}>Delete</button>
-                                                    </>
-
-
-                                                )}
-
-                                            </li>
-                                        ))}
-                                    </ul>
-                                    <form onSubmit={event => handleCommentSubmit(event, post.id)} className="sub-comment">
-                                        <textarea
-                                            value={newComment}
-                                            onChange={handleCommentChange}
-                                            placeholder="Add a comment..."
-                                        />
-                                        <button type="submit">Send</button>
-                                    </form>
-                                </div>
-                                <div className="likes">
-                                    <img src={comment.src} className="comment-icon" /> {post.comment}
-                                    <button onClick={handleLike}  >
-                                        <img src={liked ? love.src : unLike.src} className="like-icon" />{post.like}
-                                    </button>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div className="col-sm-4">
-                            <Booking />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+                                                <div className="col-sm-4">
+                                                    <Booking />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </>
+                                );
 };
 
-export default TourDetail;
+                                export default TourDetail;

@@ -44,7 +44,7 @@ const TourDetail = () => {
     const [tourData, setTourData] = useState<TourData[]>([]);
 
     useEffect(() => {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const apiUrl = https://sever-b483.onrender.com/api/v1;
         if (link) {
             axios.get<Tour>(`${apiUrl}/tour/${link}`)
                 .then(response => {

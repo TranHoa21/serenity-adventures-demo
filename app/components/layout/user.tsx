@@ -23,7 +23,7 @@ const User: React.FC<UserProps> = ({ isLoggedIn, user, userId }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const apiUrl = https://sever-b483.onrender.com/api/v1;
 
         if (user) {
             const fetchUser = async () => {

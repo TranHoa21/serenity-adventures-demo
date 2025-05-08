@@ -17,7 +17,7 @@ const Conversation = ({ conversation, lastIdx }: any) => {
     const receiver = useSelector((state: RootState) => state.mess.messages);
     const messageId = conversation.id
     const handleSelectConversation = async () => {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+        const apiUrl = https://sever-b483.onrender.com/api/v1;
 
         try {
             console.log("check client >>", client)

@@ -37,7 +37,7 @@ const Forgot = () => {
     const handleConfirmPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setConfirmPassword(e.target.value);
     };
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const apiUrl = https://sever-b483.onrender.com/api/v1;
 
 
     const handleSubmit = async (e: FormEvent) => {

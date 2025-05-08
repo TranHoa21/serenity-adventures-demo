@@ -26,14 +26,14 @@ const Blog = () => {
     const [posts, setPosts] = useState<Post[]>([]);
 
     useEffect(() => {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-        axios.get<Post[]>(`${apiUrl}/post`)
-            .then(response => {
-                setPosts(response.data);
-            })
-            .catch(error => {
-                console.error('Lỗi khi lấy danh sách bài viết:', error);
-            });
+        const apiUrl = https://sever-b483.onrender.com/api/v1;
+            axios.get<Post[] > (`${apiUrl}/post`)
+                .then(response => {
+                    setPosts(response.data);
+                })
+                .catch(error => {
+                    console.error('Lỗi khi lấy danh sách bài viết:', error);
+                });
     }, []);
     const latestPosts = posts.slice(0, 4);
 

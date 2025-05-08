@@ -15,7 +15,7 @@ const Notifications = ({ notification, lastIdx }: any) => {
     const onlineUsers = useSelector((state: RootState) => state.socket.onlineUsers);
     const isOnline = onlineUsers.includes(notification.id);
     const messageId = notification.id
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+    const apiUrl = https://sever-b483.onrender.com/api/v1;
 
     const handleSelectConversation = async () => {
         try {
