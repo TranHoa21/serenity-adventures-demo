@@ -24,7 +24,6 @@ interface Props {
     onNumTravelersChange: (numTravelers: number) => void;
     totalAmount: currency;
 }
-const apiUrl = https://sever-b483.onrender.com/api/v1;
 const MultiSelectWithDB: React.FC<Props> = ({ onPlacesChange, onPrices, onSelectePricesTitle, onNumTravelersChange }) => {
     const [selectedOptions, setSelectedOptions] = useState<StateManagedSelect[]>([]);
     const [tourAddresses, setTourAddresses] = useState<Tour[]>([]);
@@ -34,7 +33,7 @@ const MultiSelectWithDB: React.FC<Props> = ({ onPlacesChange, onPrices, onSelect
     useEffect(() => {
         const fetchTourAddresses = async () => {
             try {
-                const response = await axios.get(`${apiUrl}/tour`);
+                const response = await axios.get(`https://sever-b483.onrender.com/api/v1/tour`);
                 setTourAddresses(response.data);
             } catch (error) {
                 console.error('Error fetching tour addresses:', error);

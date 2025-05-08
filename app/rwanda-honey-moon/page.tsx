@@ -28,19 +28,18 @@ interface Tour {
 
 const RwandaHoneyMoon = () => {
     const [tours, setTours] = useState<Tour[]>([]);
-    const apiUrl = https://sever-b483.onrender.com/api/v1;
 
-        useEffect(() => {
-            axios.get<Tour[]>(`${apiUrl}/tour`) // Thêm kiểu dữ liệu cho response.data
-                .then(response => {
-                    // Lọc các tour có places_id là 1
-                    const filteredTours = response.data.filter(tour => tour.places_name === "Rwanda Honey Moon");
-                    setTours(filteredTours);
-                })
-                .catch(error => {
-                    console.error('Lỗi khi lấy danh sách hướng dẫn:', error);
-                });
-        }, []);
+    useEffect(() => {
+        axios.get<Tour[]>(`https://sever-b483.onrender.com/api/v1/tour`) // Thêm kiểu dữ liệu cho response.data
+            .then(response => {
+                // Lọc các tour có places_id là 1
+                const filteredTours = response.data.filter(tour => tour.places_name === "Rwanda Honey Moon");
+                setTours(filteredTours);
+            })
+            .catch(error => {
+                console.error('Lỗi khi lấy danh sách hướng dẫn:', error);
+            });
+    }, []);
     return (
         <>
             <Head>

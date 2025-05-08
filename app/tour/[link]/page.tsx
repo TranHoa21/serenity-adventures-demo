@@ -44,12 +44,11 @@ const TourDetail = () => {
     const [tourData, setTourData] = useState<TourData[]>([]);
 
     useEffect(() => {
-        const apiUrl = https://sever-b483.onrender.com/api/v1;
         if (link) {
-            axios.get<Tour>(`${apiUrl}/tour/${link}`)
+            axios.get<Tour>(`https://sever-b483.onrender.com/api/v1/tour/${link}`)
                 .then(response => {
                     setTour(response.data);
-                    return axios.get<TourData[]>(`${apiUrl}/tourdata/${response.data.title}`);
+                    return axios.get<TourData[]>(`https://sever-b483.onrender.com/api/v1/tourdata/${response.data.title}`);
                 })
                 .then(response => {
                     setTourData(response.data);

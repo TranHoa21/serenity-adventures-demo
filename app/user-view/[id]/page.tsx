@@ -38,16 +38,15 @@ const UserView = () => {
     const [showAlert, setShowAlert] = useState(false);
     const [alertVariant, setAlertVariant] = useState('success');
     const [validation, setValidation] = useState(false);
-    const apiUrl = https://sever-b483.onrender.com/api/v1;
-        useEffect(() => {
-            if (user) {
-                setName(user.name);
-                setEmail(user.email);
-                setPhoneNumber(user.phonenumber);
-                setAge(user.age);
-                setGender(user.gender);
-            }
-        }, [user]);
+    useEffect(() => {
+        if (user) {
+            setName(user.name);
+            setEmail(user.email);
+            setPhoneNumber(user.phonenumber);
+            setAge(user.age);
+            setGender(user.gender);
+        }
+    }, [user]);
     const handleImageClick = () => {
         inputFileRef.current?.click();
     };
@@ -99,7 +98,7 @@ const UserView = () => {
 
     const fetchData = () => {
         if (id) {
-            axios.get<User>(`${apiUrl}/user/${id}`)
+            axios.get<User>(`https://sever-b483.onrender.com/api/v1/user/${id}`)
                 .then(response => {
 
                     setUser(response.data);
@@ -149,7 +148,7 @@ const UserView = () => {
                 formData.append('file', avatar);
             }
 
-            const response = await axios.put(`${apiUrl}/user/${id}`, formData, {
+            const response = await axios.put(`https://sever-b483.onrender.com/api/v1/user/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -190,7 +189,7 @@ const UserView = () => {
 
     useEffect(() => {
         if (id) {
-            axios.get<User>(`${apiUrl}/user/${id}`)
+            axios.get<User>(`https://sever-b483.onrender.com/api/v1/user/${id}`)
                 .then(response => {
 
                     setUser(response.data);

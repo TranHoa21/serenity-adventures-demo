@@ -28,12 +28,11 @@ const Login = () => {
     const handlePasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setPassword(e.target.value);
     };
-    const apiUrl = https://sever-b483.onrender.com/api/v1;
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
 
         try {
-            const response = await axiosInstance.post(`${apiUrl}/auth/login`, {
+            const response = await axiosInstance.post(`https://sever-b483.onrender.com/api/v1/auth/login`, {
                 email,
                 password,
             });

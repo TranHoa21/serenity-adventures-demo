@@ -27,14 +27,13 @@ const AllPost = () => {
     const postsPerPage = 9;
 
     useEffect(() => {
-        const apiUrl = https://sever-b483.onrender.com/api/v1;
-            axios.get<Post[] > (`${apiUrl}/post`)
-                .then(response => {
-                    setPosts(response.data);
-                })
-                .catch(error => {
-                    console.error('Lỗi khi lấy danh sách bài viết:', error);
-                });
+        axios.get<Post[]>(`https://sever-b483.onrender.com/api/v1/post`)
+            .then(response => {
+                setPosts(response.data);
+            })
+            .catch(error => {
+                console.error('Lỗi khi lấy danh sách bài viết:', error);
+            });
     }, []);
 
     // Tính chỉ mục bắt đầu và chỉ mục kết thúc của bài post trên trang hiện tại

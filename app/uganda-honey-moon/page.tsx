@@ -21,17 +21,16 @@ const UgandaLuxury = () => {
     const [tours, setTours] = useState<Tour[]>([]);
 
     useEffect(() => {
-        const apiUrl = https://sever-b483.onrender.com/api/v1;
-            axios.get<Tour[] > (`${apiUrl}/tour`) // Thêm kiểu dữ liệu cho response.data
-                .then(response => {
-                    // Lọc các tour có places_id là 1
-                    const filteredTours = response.data.filter(tour => tour.places_name === "Uganda Honey Moon");
-                    setTours(filteredTours);
+        axios.get<Tour[]>(`https://sever-b483.onrender.com/api/v1/tour`) // Thêm kiểu dữ liệu cho response.data
+            .then(response => {
+                // Lọc các tour có places_id là 1
+                const filteredTours = response.data.filter(tour => tour.places_name === "Uganda Honey Moon");
+                setTours(filteredTours);
 
-                })
-                .catch(error => {
-                    console.error('Lỗi khi lấy danh sách hướng dẫn:', error);
-                });
+            })
+            .catch(error => {
+                console.error('Lỗi khi lấy danh sách hướng dẫn:', error);
+            });
     }, []);
     return (
         <>

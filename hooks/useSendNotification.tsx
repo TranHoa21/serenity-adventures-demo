@@ -22,29 +22,28 @@ interface Notification {
 const useSendMessage = () => {
     const [loading, setLoading] = useState(false);
     const [socket, setSocket] = useState<Socket | null>(null);
-    const apiUrl = https://sever-b483.onrender.com/api/v1;
-        useEffect(() => {
-            const socketInstance = io("https://serenity-adventures-demo.onrender.com");
+    useEffect(() => {
+        const socketInstance = io("https://serenity-adventures-demo.onrender.com");
 
-            socketInstance.on("connect", () => {
-                console.log("Connected to server");
-            });
+        socketInstance.on("connect", () => {
+            console.log("Connected to server");
+        });
 
-            socketInstance.on("disconnect", () => {
-                console.log("Disconnected from server");
-            });
+        socketInstance.on("disconnect", () => {
+            console.log("Disconnected from server");
+        });
 
-            setSocket(socketInstance);
+        setSocket(socketInstance);
 
-            return () => {
-                socketInstance.disconnect();
-            };
-        }, []);
+        return () => {
+            socketInstance.disconnect();
+        };
+    }, []);
 
     const sendMessage = async (notification: Notification) => {
         setLoading(true);
         try {
-            const res = await axiosInstance.post(`${apiUrl}/user`);
+            const res = await axiosInstance.post(`https://sever-b483.onrender.com/api/v1/user`);
             const data = await res.data.filter((user: any) => user.role === true);
             const receiverId = data.id
             if (data.error) throw new Error(data.error);

@@ -23,12 +23,10 @@ const User: React.FC<UserProps> = ({ isLoggedIn, user, userId }) => {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        const apiUrl = https://sever-b483.onrender.com/api/v1;
-
         if (user) {
             const fetchUser = async () => {
                 try {
-                    const response = await axios.get(`${apiUrl}/user/${userId}`);
+                    const response = await axios.get(`https://sever-b483.onrender.com/api/v1/user/${userId}`);
                     const userData = response.data;
 
                     setStoredUser(userData);

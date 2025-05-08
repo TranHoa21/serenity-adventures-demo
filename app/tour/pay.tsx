@@ -39,14 +39,13 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
             throw new Error('Failed to create PayPal order');
         }
     };
-    const apiUrl = https://sever-b483.onrender.com/api/v1;
     const createOrder = async (totalAmount: string) => {
         console.log("Total amount:", totalAmount);
         const amount = parseFloat(totalAmount.replace(/[$,]/g, '')).toFixed(2);
         console.log("check:", amount);
 
         try {
-            const response = await axios.post(`${apiUrl}/payment/create-order`, { totalAmount: amount }); // Gửi giá trị totalAmount dưới dạng object
+            const response = await axios.post(`https://sever-b483.onrender.com/api/v1/payment/create-order`, { totalAmount: amount }); // Gửi giá trị totalAmount dưới dạng object
             const orderId = response.data.message;
             return orderId;
         } catch (error: any) {
@@ -64,7 +63,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
         const tourName = Array.isArray(booking.tour) && booking.tour.length > 0 ? booking.tour[0] : '';
 
         if (paymentSuccess || !paymentStatus) {
-            axios.post(`${apiUrl}/booking`, {
+            axios.post(`https://sever-b483.onrender.com/api/v1/booking`, {
                 name: booking.name,
                 email: booking.email,
                 start_day: booking.start_day,
@@ -80,7 +79,7 @@ export default function Payment({ onOkButtonClick, onHidePayment }: PaymentProps
                     console.log(response.data);
                     setBookingSuccess(true);
                     setPayment(true);
-                    return axios.post(`${apiUrl}/notification`, {
+                    return axios.post(`https://sever-b483.onrender.com/api/v1/notification`, {
                         userId: userId,
                         bookingId: order_id,
                         message: `The customer has just created a new order ${order_id}`

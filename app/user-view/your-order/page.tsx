@@ -37,22 +37,21 @@ export default function Order() {
     const [bookingDetails, setBookingDetails] = useState<Payment | null>(null);
     const [reloadData, setReloadData] = useState(false);
     const { userId } = getAuthCookie();
-    const apiUrl = https://sever-b483.onrender.com/api/v1;
-        useEffect(() => {
-            const fetchData = async () => {
-                try {
-                    const response = await axios.get(`${apiUrl}/booking`);
-                    const sortedData = response.data
-                        .filter((booking: Payment) => String(booking.userId) === String(userId))
-                        .sort((a: Payment, b: Payment) => b.id - a.id);
-                    setData(sortedData);
-                } catch (error) {
-                    console.error(error);
-                }
-            };
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`https://sever-b483.onrender.com/api/v1/booking`);
+                const sortedData = response.data
+                    .filter((booking: Payment) => String(booking.userId) === String(userId))
+                    .sort((a: Payment, b: Payment) => b.id - a.id);
+                setData(sortedData);
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
-            fetchData();
-        }, [reloadData, userId]);
+        fetchData();
+    }, [reloadData, userId]);
 
     const indexOfLastItem = currentPage * itemsPerPage;
     const indexOfFirstItem = indexOfLastItem - itemsPerPage;
@@ -66,7 +65,7 @@ export default function Order() {
         const id = booking.id;
         console.log("check id >>", id);
         setView(true);
-        axios.get(`${apiUrl}/booking/${id}`)
+        axios.get(`https://sever-b483.onrender.com/api/v1/booking/${id}`)
             .then(response => {
                 setBookingDetails(response.data);
             })

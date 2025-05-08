@@ -55,24 +55,23 @@ const Signup = () => {
 
         const userData = { name, email, password };
         console.log('Sending data to server:', userData);
-        const apiUrl = https://sever-b483.onrender.com/api/v1;
-            axios.post(`${apiUrl}/auth/signup`, { name, email, password })
-                .then(response => {
-                    const { success, message, user } = response.data;
-                    console.log(success, message, user);
-                    setSignupMessage(message);
-                    setSignupSuccess(true);
-                })
+        axios.post(`https://sever-b483.onrender.com/api/v1/auth/signup`, { name, email, password })
+            .then(response => {
+                const { success, message, user } = response.data;
+                console.log(success, message, user);
+                setSignupMessage(message);
+                setSignupSuccess(true);
+            })
 
-                .catch(error => {
-                    if (error.response && error.response.data) {
-                        setSignupMessage(error.response.data.message);
-                        console.log(error.response.data);
-                    } else {
-                        setSignupMessage('Đã xảy ra lỗi. Vui lòng thử lại.');
-                        console.log(error);
-                    }
-                });
+            .catch(error => {
+                if (error.response && error.response.data) {
+                    setSignupMessage(error.response.data.message);
+                    console.log(error.response.data);
+                } else {
+                    setSignupMessage('Đã xảy ra lỗi. Vui lòng thử lại.');
+                    console.log(error);
+                }
+            });
     };
 
     useEffect(() => {

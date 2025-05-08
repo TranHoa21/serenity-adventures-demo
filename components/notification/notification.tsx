@@ -15,11 +15,10 @@ const Notifications = ({ notification, lastIdx }: any) => {
     const onlineUsers = useSelector((state: RootState) => state.socket.onlineUsers);
     const isOnline = onlineUsers.includes(notification.id);
     const messageId = notification.id
-    const apiUrl = https://sever-b483.onrender.com/api/v1;
 
     const handleSelectConversation = async () => {
         try {
-            axios.put(`${apiUrl}/notificationclient/${messageId}`, { status: true })
+            axios.put(`https://sever-b483.onrender.com/api/v1/notificationclient/${messageId}`, { status: true })
                 .then(response => {
                     dispatch(setHasNewNotification(false));
                     removeShowChat()

@@ -17,14 +17,13 @@ const Conversation = ({ conversation, lastIdx }: any) => {
     const receiver = useSelector((state: RootState) => state.mess.messages);
     const messageId = conversation.id
     const handleSelectConversation = async () => {
-        const apiUrl = https://sever-b483.onrender.com/api/v1;
 
         try {
             console.log("check client >>", client)
             dispatch(selectConversation(conversation));
             dispatch(setHasNewMessage(true));
             removeNotification()
-            axios.put(`${apiUrl}/messages/${messageId}`, { client: true })
+            axios.put(`https://sever-b483.onrender.com/api/v1/messages/${messageId}`, { client: true })
 
         } catch (error) {
             console.error('Error updating message status:', error);

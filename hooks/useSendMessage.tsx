@@ -20,30 +20,29 @@ const useSendMessage = () => {
     const { selectedConversation } = useSelector((state: RootState) => state.mess);
     const { messages } = useSelector((state: RootState) => state.mess);
     const [socket, setSocket] = useState<Socket | null>(null);
-    const apiUrl = https://sever-b483.onrender.com/api/v1;
-        useEffect(() => {
-            const socketInstance = io("https://serenity-adventures-demo.onrender.com");
+    useEffect(() => {
+        const socketInstance = io("https://serenity-adventures-demo.onrender.com");
 
-            socketInstance.on("connect", () => {
-                console.log("Connected to server");
-            });
+        socketInstance.on("connect", () => {
+            console.log("Connected to server");
+        });
 
-            socketInstance.on("disconnect", () => {
-                console.log("Disconnected from server");
-            });
+        socketInstance.on("disconnect", () => {
+            console.log("Disconnected from server");
+        });
 
-            setSocket(socketInstance);
+        setSocket(socketInstance);
 
-            return () => {
-                socketInstance.disconnect();
-            };
-        }, []);
+        return () => {
+            socketInstance.disconnect();
+        };
+    }, []);
 
     const sendMessage = async (message: Message) => {
         setLoading(true);
         try {
             if (!selectedConversation?.id) return;
-            const res = await axiosInstance.post(`${apiUrl}/messages/send/${selectedConversation.id}`, message);
+            const res = await axiosInstance.post(`https://sever-b483.onrender.com/api/v1/messages/send/${selectedConversation.id}`, message);
             const data = await res.data;
             if (data.error) throw new Error(data.error);
             console.log("check mess by api >>>", data)

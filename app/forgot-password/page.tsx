@@ -37,14 +37,13 @@ const Forgot = () => {
     const handleConfirmPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
         setConfirmPassword(e.target.value);
     };
-    const apiUrl = https://sever-b483.onrender.com/api/v1;
 
 
     const handleSubmit = async (e: FormEvent) => {
         e.preventDefault();
 
         try {
-            const response = await axiosInstance.post(`${apiUrl}/auth/send-verification-email`, {
+            const response = await axiosInstance.post(`https://sever-b483.onrender.com/api/v1/auth/send-verification-email`, {
                 email,
             });
             const data = response.data
@@ -64,7 +63,7 @@ const Forgot = () => {
             return;
         }
         try {
-            const response = await axiosInstance.post(`${apiUrl}/auth/verify-password-reset-code`, {
+            const response = await axiosInstance.post(`https://sever-b483.onrender.com/api/v1/auth/verify-password-reset-code`, {
                 email, resetCode
             });
             const data = response.data
@@ -81,7 +80,7 @@ const Forgot = () => {
     const handleSubmitUpdatePassword = async (e: FormEvent) => {
         e.preventDefault();
         try {
-            const response = await axiosInstance.post(`${apiUrl}/auth/verify-password-reset-code`, {
+            const response = await axiosInstance.post(`https://sever-b483.onrender.com/api/v1/auth/verify-password-reset-code`, {
                 email, newPassword
             });
             setSignupSuccess(true)
