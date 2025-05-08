@@ -6,7 +6,8 @@ import Link from 'next/link';
 import "@/app/styles/blog/allPost.scss";
 import love from "@/public/img/heart_833472.png";
 import comment from "@/public/img/message_8799976.png"
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface Post {
     id: number;

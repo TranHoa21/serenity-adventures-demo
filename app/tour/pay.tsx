@@ -10,7 +10,8 @@ import day from "@/public/img/calendar_7614517.png"
 import phone from "@/public/img/call_3687004.png"
 import tour from "@/public/img/tour-guide_9682036.png";
 import { getAuthCookie } from "@/utils/cookies";
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 interface PaymentProps {
     onOkButtonClick: () => void;
     onHidePayment: () => void;

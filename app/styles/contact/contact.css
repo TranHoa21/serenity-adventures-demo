@@ -1,0 +1,66 @@
+.destination {
+  margin-top: 4%;
+  margin-bottom: 2%;
+}
+.destination .title {
+  margin: 5%;
+}
+.destination .row {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.destination .row .col-sm-5 {
+  margin-left: 5%;
+  padding: 0;
+}
+.destination .row .box2 {
+  margin-top: 2%;
+  height: -moz-max-content;
+  height: max-content;
+}
+.destination .row .row-2 {
+  display: flex;
+  margin-top: 15%;
+}
+.destination .row .row-2 .col-sm-5 {
+  display: flex;
+}
+.destination .row .row-2 .col-sm-5 .icon-e {
+  margin: 2%;
+  width: 40px;
+  height: 40px;
+}
+.destination .row-3 {
+  margin: 10% 0;
+  justify-content: center;
+  display: flex;
+}
+.destination .row-3 .col-sm-3 {
+  background-color: rgb(238, 238, 238);
+  border: 1px solid rgb(168, 168, 168);
+  padding: 15px;
+  margin-left: 2%;
+  border-radius: 10px;
+}
+.destination .row-3 .col-sm-3 .box {
+  display: flex;
+  padding: 15px 10px;
+  border-bottom: 1px solid rgb(167, 167, 167);
+}
+.destination .row-3 .col-sm-3 .box .box-image img {
+  margin: 7px 10px 7px 0;
+  width: 50px;
+  height: 50px;
+}
+.destination .row-3 .col-sm-3 .box .box-header p {
+  margin: 0;
+  padding: 5px 0;
+}
+.destination .row-3 .col-sm-3 .box-content {
+  padding: 10px;
+}
+.destination .row-3 .col-sm-3 .box-content p {
+  margin: 0;
+  padding: 5px 0;
+}/*# sourceMappingURL=contact.css.map */

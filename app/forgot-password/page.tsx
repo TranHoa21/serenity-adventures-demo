@@ -3,7 +3,8 @@
 import React, { ChangeEvent, FormEvent, useState, useEffect } from 'react';
 import '@/app/styles/login/Login.scss';
 import { Alert } from 'react-bootstrap';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 import axiosInstance from "@/app/api/axiosInstance"
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';

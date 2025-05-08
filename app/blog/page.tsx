@@ -11,7 +11,8 @@ import axios from 'axios';
 import "@/app/styles/blog/blog.scss";
 import AllPost from "@/app/blog/allPost";
 import Link from "next/link";
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface Post {
     id: number;

@@ -3,7 +3,8 @@ import anonAvatar from '@/public/img/user_1177568.png';
 import axios from 'axios';
 import '@/app/styles/layout/header.scss';
 import { useDispatch } from 'react-redux';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface User {
     avatar?: string;

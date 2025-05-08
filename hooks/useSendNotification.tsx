@@ -5,7 +5,8 @@ import { RootState } from "@/app/store/store";
 import { setMessages } from "@/app/store/actions/messActions";
 import axiosInstance from '@/app/api/axiosInstance'
 import { io, Socket } from "socket.io-client";
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 interface Notification {

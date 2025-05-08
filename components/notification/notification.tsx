@@ -4,7 +4,8 @@ import { setHasNewNotification, selectConversation } from "@/app/store/actions/m
 import "@/app/styles/components/notification.scss"
 import axios from "axios";
 import { removeShowChat } from "@/utils/cookies"
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 const Notifications = ({ notification, lastIdx }: any) => {

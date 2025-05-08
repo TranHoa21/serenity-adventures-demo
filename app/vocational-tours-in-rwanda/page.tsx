@@ -12,7 +12,8 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import "@/app/styles/home/slider1.scss";
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface Tour {
     id: number;

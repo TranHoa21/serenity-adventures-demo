@@ -37,8 +37,9 @@ const Footer = () => {
                 <Row className='box'>
                     <Col md={12}>
                         <hr />
-                        <p className="text-center">&copy;2024 Serenity Adventure Tours. All rights reserved.</p>
-                    </Col>
+                        <p className="text-center">
+                            &copy;2025 Copyright Thanh Hoa Tran | Designed & Developed by Thanh Hoa Tran
+                        </p>                    </Col>
                 </Row>
             </Container>
         </footer>

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import axios from "@/app/api/axiosInstance";
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 import { getAuthCookie } from "@/utils/cookies"
 
 interface Conversation {

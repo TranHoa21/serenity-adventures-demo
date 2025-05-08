@@ -4,7 +4,8 @@ import { setHasNewMessage, selectConversation } from "@/app/store/actions/messAc
 import "@/app/styles/components/conversation.scss";
 import axios from "axios";
 import { removeNotification } from "@/utils/cookies"
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 const Conversation = ({ conversation, lastIdx }: any) => {
     const dispatch = useDispatch();

@@ -2,7 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import Select, { ActionMeta, OnChangeValue } from 'react-select';
 import currency from 'currency.js';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 interface Tour {
     id: number;
     title: string;

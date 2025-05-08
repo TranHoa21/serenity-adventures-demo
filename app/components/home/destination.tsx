@@ -22,8 +22,6 @@ import user7 from '@/public/img/user7.jpg';
 import user8 from '@/public/img/user8.jpg';
 import user9 from '@/public/img/user9.jpg';
 import user10 from '@/public/img/user10.jpg';
-
-
 import icon from '@/public/img/tripadvisor_3664912.png';
 import star from '@/public/img/star_3794158.png';
 import verified from "@/public/img/badge_9797471.png"

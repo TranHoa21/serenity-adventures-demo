@@ -6,7 +6,8 @@ import { setMessages, setHasNewMessage } from "@/app/store/actions/messActions";
 import toast from "react-hot-toast";
 import axiosInstance from '@/app/api/axiosInstance';
 import { getAuthCookie } from "@/utils/cookies"
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 const useGetMessages = () => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState(false);

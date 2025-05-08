@@ -10,7 +10,8 @@ import { MySelect } from "@/app/user-view/gender"
 import { useDispatch } from "react-redux";
 import * as yup from 'yup';
 import Head from 'next/head';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 interface User {
     id: number;
     avatar: string;

@@ -1,0 +1,60 @@
+@media (min-width: 768px) {
+  .message-container {
+    width: 100%;
+  }
+  .message-container .nochat-container .nochat-item {
+    font-size: 1.125rem;
+  }
+  .message-container .nochat-container .nochat-item p {
+    color: black;
+  }
+  .message-container .nochat-container .nochat-item .text-3xl {
+    font-size: 3.75rem;
+    color: black;
+  }
+}
+.message-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.message-container .mes-item {
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgb(138, 138, 138);
+  border-radius: 10px;
+}
+.message-container .mes-item .label-text {
+  display: inline;
+  color: black;
+}
+.message-container .mes-item .name-u {
+  color: #1a202c;
+  font-weight: bold;
+}
+.message-container .nochat-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.message-container .nochat-container .nochat-item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  gap: 0.5rem;
+}
+.message-container .nochat-container .nochat-item p {
+  color: black;
+}
+.message-container .nochat-container .nochat-item .text-3xl {
+  font-size: 1.875rem;
+  text-align: center;
+}/*# sourceMappingURL=messagecontainer.css.map */

@@ -1,0 +1,47 @@
+.style {
+  padding-top: 3%;
+  background-color: black;
+  color: white;
+}
+.style .foot {
+  margin-top: 2%;
+  padding-top: 2%;
+  border-top: 1px solid rgb(126, 126, 126);
+  width: 100%;
+}
+.style .foot .box {
+  width: 100%;
+}
+.style .foot .box .item li {
+  margin-top: 3%;
+  transition: transform 0.3s;
+}
+.style .foot .box .item li a {
+  text-decoration: none;
+  color: white;
+}
+.style .foot .box .item li:hover {
+  transform: scale(1.1);
+}
+.style .foot .box .item li:hover a {
+  color: #45a049;
+}
+.style .foot .box .item .contact {
+  transition: transform 0.3s;
+}
+.style .foot .box .item .contact a {
+  text-decoration: none;
+  color: white;
+}
+.style .foot .box .item .contact:hover {
+  transform: scale(1.1);
+}
+.style .foot .box .item .contact:hover a {
+  color: #45a049;
+}
+
+@media (max-width: 767px) {
+  .style {
+    font-size: 50%;
+  }
+}/*# sourceMappingURL=footer.css.map */

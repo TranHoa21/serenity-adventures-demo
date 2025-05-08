@@ -1,0 +1,24 @@
+.btn {
+  margin: 1%;
+  border: none;
+  color: white;
+}
+
+.btn:hover {
+  color: black;
+}
+
+.gap-2 img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.second-nav-dropdown.nav-item.show.dropdown {
+  position: inherit !important;
+}
+.second-nav-dropdown.nav-item.show.dropdown .dropdown-menu.show {
+  left: 90%;
+}/*# sourceMappingURL=header.css.map */

@@ -14,7 +14,8 @@ import 'swiper/css/scrollbar';
 import { Navigation, Pagination, Scrollbar, A11y, Autoplay } from 'swiper/modules';
 import "@/app/styles/home/slider1.scss";
 import Head from 'next/head';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 interface Tour {
     id: number;
     image: string;
@@ -39,6 +40,7 @@ const RwandaHoneyMoon = () => {
                 console.error('Lỗi khi lấy danh sách hướng dẫn:', error);
             });
     }, []);
+
     return (
         <>
             <Head>

@@ -6,7 +6,8 @@ import { extractTime } from "@/utils/extractTime";
 import "@/app/styles/components/message.scss"
 import axios from "axios";
 import { useEffect, useState } from "react";
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface Message {
     senderId: number;

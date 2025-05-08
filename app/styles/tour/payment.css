@@ -1,0 +1,274 @@
+.pay-container {
+  position: relative;
+  width: 40%;
+  height: 90%;
+  background-color: white;
+  border-radius: 15px;
+  padding: 15px;
+}
+.pay-container .pay-title {
+  text-align: center;
+  font-weight: 500;
+}
+.pay-container .pay-price {
+  margin: 3px 0;
+  padding: 10px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  height: 60px;
+  background: linear-gradient(to right, #FFE998, #c4812a);
+}
+.pay-container .pay-price .price {
+  position: absolute;
+  right: 45%;
+  font-weight: bold;
+  color: white;
+}
+.pay-container .pay-lp {
+  display: flex;
+}
+.pay-container .pay-lp .pay-email {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  padding: 10px;
+}
+.pay-container .pay-lp .pay-email .email {
+  font-weight: 400;
+}
+.pay-container .pay-lp .pay-email .email .pay-icon {
+  width: 24px;
+  height: 24px;
+}
+.pay-container .pay-lp .pay-day {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  padding: 10px;
+}
+.pay-container .pay-lp .pay-day .start-day {
+  font-weight: 400;
+}
+.pay-container .pay-lp .pay-day .start-day .pay-icon {
+  width: 24px;
+  height: 24px;
+}
+.pay-container .pay-lp {
+  display: flex;
+}
+.pay-container .pay-lp .pay-phone {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  padding: 10px;
+}
+.pay-container .pay-lp .pay-phone .phonenumber {
+  font-weight: 400;
+}
+.pay-container .pay-lp .pay-phone .phonenumber .pay-icon {
+  width: 24px;
+  height: 24px;
+}
+.pay-container .pay-lp .pay-tour {
+  display: flex;
+  align-items: center;
+  margin: 5px 0;
+  padding: 10px;
+}
+.pay-container .pay-lp .pay-tour .tour-name {
+  font-weight: 400;
+}
+.pay-container .pay-lp .pay-tour .tour-name .pay-icon {
+  width: 24px;
+  height: 24px;
+}
+.pay-container .payment-methods {
+  position: absolute;
+  width: 95%;
+}
+.pay-container .payment-methods .alert-failure {
+  background-color: red;
+  color: white;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.pay-container .payment-methods .discounts {
+  font-weight: 200;
+}
+.pay-container .payment-methods .pay-confirm {
+  position: absolute;
+  border-radius: 10px;
+  margin: 3px;
+  padding: 15px;
+  border: none;
+  background-color: rgb(214, 183, 4);
+  left: 40%;
+}
+.pay-container .bookingSuccess {
+  flex: 0 0 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.411);
+}
+.pay-container .bookingSuccess .successful {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgb(76, 209, 105);
+  border: 1px solid rgb(115, 252, 4);
+  border-radius: 20px;
+}
+.pay-container .bookingSuccess .successful .alert-success {
+  position: absolute;
+  top: 40%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 150%;
+  width: 100%;
+}
+.pay-container .bookingSuccess .successful button {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(228, 228, 228);
+  background-color: white;
+  border-radius: 10px;
+  width: 50px;
+}
+.pay-container .bookingFailure {
+  flex: 0 0 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(255, 255, 255, 0.411);
+}
+.pay-container .bookingFailure .successful {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background-color: rgb(207, 55, 55);
+  border: 1px solid rgb(252, 4, 4);
+  border-radius: 20px;
+}
+.pay-container .bookingFailure .successful .alert-failure {
+  position: absolute;
+  top: 40%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  font-size: 150%;
+  width: 100%;
+}
+.pay-container .bookingFailure .successful button {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgb(228, 228, 228);
+  background-color: white;
+  border-radius: 10px;
+  width: 50px;
+}
+
+@media (max-width: 767px) {
+  .pay-container {
+    position: relative;
+    width: 100%;
+    height: 98%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 15px;
+  }
+  .pay-container .pay-title {
+    text-align: center;
+    font-weight: 500;
+  }
+  .pay-container .pay-price {
+    margin: 3px 0;
+    padding: 10px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background: linear-gradient(to right, #FFE998, #c4812a);
+  }
+  .pay-container .pay-price .price {
+    position: absolute;
+    right: 40%;
+    font-weight: bold;
+    color: white;
+  }
+  .pay-container .pay-email {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+  }
+  .pay-container .pay-email .email {
+    font-weight: 400;
+  }
+  .pay-container .pay-email .email .pay-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .pay-container .pay-day {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+  }
+  .pay-container .pay-day .start-day {
+    font-weight: 400;
+  }
+  .pay-container .pay-day .start-day .pay-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .pay-container .pay-phone {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+  }
+  .pay-container .pay-phone .phonenumber {
+    font-weight: 400;
+  }
+  .pay-container .pay-phone .phonenumber .pay-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .pay-container .pay-tour {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 10px;
+  }
+  .pay-container .pay-tour .tour-name {
+    font-weight: 400;
+  }
+  .pay-container .pay-tour .tour-name .pay-icon {
+    width: 24px;
+    height: 24px;
+  }
+  .pay-container .payment-methods {
+    position: absolute;
+    width: 90%;
+  }
+  .pay-container .payment-methods .discounts {
+    font-weight: 200;
+  }
+}/*# sourceMappingURL=payment.css.map */

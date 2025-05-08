@@ -7,7 +7,8 @@ import { useRouter } from 'next/navigation';
 import { Alert } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Head from 'next/head';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 const Signup = () => {
     const [name, setName] = useState('');

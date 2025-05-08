@@ -8,7 +8,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Link from "next/link";
 import sanitizeHtml from 'sanitize-html';
 import Head from 'next/head';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 interface Tour {
     id: number;
     title: string;

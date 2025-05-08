@@ -7,7 +7,8 @@ import React from "react";
 import { useRouter, useSearchParams } from 'next/navigation';
 import "@/app/styles/user/style.scss";
 import moment from 'moment';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 import { getAuthCookie } from "@/utils/cookies"
 
 type Props = {};

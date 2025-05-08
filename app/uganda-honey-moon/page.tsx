@@ -5,7 +5,8 @@ import axios from 'axios';
 import "@/app/styles/rwanda/safari.scss";
 import Link from 'next/link';
 import Head from 'next/head';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 interface Tour {
     id: number;
     image: string;

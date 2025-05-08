@@ -6,7 +6,8 @@ import "@/app/styles/rwanda/safari.scss";
 import Link from 'next/link';
 import "@/app/styles/home/slider1.scss";
 import Head from 'next/head';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 interface Tour {
     id: number;

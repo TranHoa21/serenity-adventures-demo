@@ -1,0 +1,474 @@
+.home {
+  height: 1000px;
+  background-color: black;
+  color: white;
+}
+.home h1 {
+  display: flex;
+  justify-content: center;
+  padding-top: 5%;
+}
+.home h6 {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 5%;
+}
+.home .tour {
+  display: flex;
+  justify-content: center;
+}
+.home .tour .item {
+  margin: 0 1.5%;
+  width: 400px;
+  height: 180px;
+  flex: 1;
+}
+.home .tour .item .box1 {
+  overflow: hidden;
+  transition: transform 0.3s;
+  background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/nguoi-dan.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150%;
+  position: relative;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.home .tour .item .box1 .title {
+  position: absolute;
+  bottom: 5%;
+}
+.home .tour .item .box1 .more {
+  position: absolute;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 2%;
+  color: #45a049;
+  bottom: 4%;
+}
+.home .tour .item .box1:hover {
+  transform: scale(1.1);
+  border-bottom: 1px solid #45a049;
+  border-right: 1px solid #45a049;
+  border-left: 1px solid #45a049;
+}
+.home .tour .item .box2 {
+  background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/ninh-duong.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.home .tour .item .box2 .title {
+  position: absolute;
+  bottom: 5%;
+}
+.home .tour .item .box2 .more {
+  position: absolute;
+  bottom: 4%;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 2%;
+  color: #45a049;
+}
+.home .tour .item .box2:hover {
+  transform: scale(1.1);
+  border-bottom: 1px solid #45a049;
+  border-right: 1px solid #45a049;
+  border-left: 1px solid #45a049;
+}
+.home .tour .item .box3 {
+  background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/BisateLodge-16-e1528730445955.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.home .tour .item .box3 .title {
+  position: absolute;
+  bottom: 5%;
+}
+.home .tour .item .box3 .more {
+  position: absolute;
+  bottom: 4%;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 2%;
+  color: #45a049;
+}
+.home .tour .item .box3:hover {
+  transform: scale(1.1);
+  border-bottom: 1px solid #45a049;
+  border-right: 1px solid #45a049;
+  border-left: 1px solid #45a049;
+}
+.home .tu2 {
+  padding-top: 13%;
+  display: flex;
+  justify-content: center;
+}
+.home .tu2 .item {
+  margin: 0 1.5%;
+  width: 400px;
+  height: 180px;
+  flex: 1;
+}
+.home .tu2 .item .box4 {
+  overflow: hidden;
+  transition: transform 0.3s;
+  background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/ngua-van.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150%;
+  position: relative;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.home .tu2 .item .box4 .title {
+  position: absolute;
+  bottom: 5%;
+}
+.home .tu2 .item .box4 .more {
+  position: absolute;
+  bottom: 4%;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 2%;
+  color: #45a049;
+}
+.home .tu2 .item .box4:hover {
+  transform: scale(1.1);
+  border-bottom: 1px solid #45a049;
+  border-right: 1px solid #45a049;
+  border-left: 1px solid #45a049;
+}
+.home .tu2 .item .box5 {
+  background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("https://res.cloudinary.com/dhjrrk4pg/image/upload/v1712301124/learn_nodejs/gpgqphq5n1cmev7luscl.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.home .tu2 .item .box5 .title {
+  position: absolute;
+  bottom: 5%;
+}
+.home .tu2 .item .box5 .more {
+  position: absolute;
+  bottom: 4%;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 2%;
+  color: #45a049;
+}
+.home .tu2 .item .box5:hover {
+  transform: scale(1.1);
+  border-bottom: 1px solid #45a049;
+  border-right: 1px solid #45a049;
+  border-left: 1px solid #45a049;
+}
+.home .tu2 .item .box6 {
+  background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/20191223-Rwanda-08.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 150%;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s;
+  border-radius: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+.home .tu2 .item .box6 .title {
+  position: absolute;
+  bottom: 5%;
+}
+.home .tu2 .item .box6 .more {
+  position: absolute;
+  bottom: 4%;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 2%;
+  color: #45a049;
+}
+.home .tu2 .item .box6:hover {
+  transform: scale(1.1);
+  border-bottom: 1px solid #45a049;
+  border-right: 1px solid #45a049;
+  border-left: 1px solid #45a049;
+}
+
+@media (max-width: 767px) {
+  .home {
+    height: -moz-max-content;
+    height: max-content;
+    background-color: black;
+    color: white;
+  }
+  .home h1 {
+    display: flex;
+    font-size: 80%;
+    justify-content: center;
+    padding-top: 10%;
+  }
+  .home h6 {
+    display: flex;
+    font-size: 80%;
+    justify-content: center;
+    padding-bottom: 5%;
+  }
+  .home .tour {
+    display: flex;
+    justify-content: center;
+  }
+  .home .tour .item {
+    margin: 0 1.5%;
+    width: 200px;
+    height: 60px;
+    flex: 1;
+  }
+  .home .tour .item .box1 {
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/nguoi-dan.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 150%;
+    position: relative;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .home .tour .item .box1 .title {
+    position: absolute;
+    bottom: 5%;
+    font-size: 50%;
+  }
+  .home .tour .item .box1 .more {
+    position: absolute;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 2%;
+    color: #45a049;
+    bottom: 4%;
+    font-size: 60%;
+  }
+  .home .tour .item .box1:hover {
+    transform: scale(1.1);
+    border-bottom: 1px solid #45a049;
+    border-right: 1px solid #45a049;
+    border-left: 1px solid #45a049;
+  }
+  .home .tour .item .box2 {
+    background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/ninh-duong.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 150%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .home .tour .item .box2 .title {
+    position: absolute;
+    bottom: 5%;
+    font-size: 50%;
+  }
+  .home .tour .item .box2 .more {
+    position: absolute;
+    bottom: 4%;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 2%;
+    color: #45a049;
+    font-size: 60%;
+  }
+  .home .tour .item .box2:hover {
+    transform: scale(1.1);
+    border-bottom: 1px solid #45a049;
+    border-right: 1px solid #45a049;
+    border-left: 1px solid #45a049;
+  }
+  .home .tour .item .box3 {
+    background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/BisateLodge-16-e1528730445955.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 150%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .home .tour .item .box3 .title {
+    position: absolute;
+    bottom: 5%;
+    font-size: 50%;
+  }
+  .home .tour .item .box3 .more {
+    position: absolute;
+    bottom: 4%;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 2%;
+    color: #45a049;
+    font-size: 60%;
+  }
+  .home .tour .item .box3:hover {
+    transform: scale(1.1);
+    border-bottom: 1px solid #45a049;
+    border-right: 1px solid #45a049;
+    border-left: 1px solid #45a049;
+  }
+  .home .tu2 {
+    padding-top: 13%;
+    display: flex;
+    justify-content: center;
+  }
+  .home .tu2 .item {
+    margin: 0 1.5%;
+    width: 200px;
+    height: 60px;
+    flex: 1;
+  }
+  .home .tu2 .item .box4 {
+    overflow: hidden;
+    transition: transform 0.3s;
+    background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/ngua-van.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 150%;
+    position: relative;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .home .tu2 .item .box4 .title {
+    position: absolute;
+    bottom: 5%;
+    font-size: 50%;
+  }
+  .home .tu2 .item .box4 .more {
+    position: absolute;
+    bottom: 4%;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 2%;
+    color: #45a049;
+    font-size: 60%;
+  }
+  .home .tu2 .item .box4:hover {
+    transform: scale(1.1);
+    border-bottom: 1px solid #45a049;
+    border-right: 1px solid #45a049;
+    border-left: 1px solid #45a049;
+  }
+  .home .tu2 .item .box5 {
+    background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/ninh-duong.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 150%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .home .tu2 .item .box5 .title {
+    position: absolute;
+    bottom: 5%;
+    font-size: 50%;
+  }
+  .home .tu2 .item .box5 .more {
+    position: absolute;
+    bottom: 4%;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 2%;
+    color: #45a049;
+    font-size: 60%;
+  }
+  .home .tu2 .item .box5:hover {
+    transform: scale(1.1);
+    border-bottom: 1px solid #45a049;
+    border-right: 1px solid #45a049;
+    border-left: 1px solid #45a049;
+  }
+  .home .tu2 .item .box6 {
+    background-image: linear-gradient(0, rgb(0, 0, 0), rgba(255, 255, 255, 0)), url("/img/20191223-Rwanda-08.jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 150%;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+  }
+  .home .tu2 .item .box6 .title {
+    position: absolute;
+    bottom: 5%;
+    font-size: 50%;
+  }
+  .home .tu2 .item .box6 .more {
+    position: absolute;
+    bottom: 4%;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 2%;
+    color: #45a049;
+    font-size: 60%;
+  }
+  .home .tu2 .item .box6:hover {
+    transform: scale(1.1);
+    border-bottom: 1px solid #45a049;
+    border-right: 1px solid #45a049;
+    border-left: 1px solid #45a049;
+  }
+}/*# sourceMappingURL=popularTours.css.map */

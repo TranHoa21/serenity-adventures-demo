@@ -1,0 +1,31 @@
+.swiper {
+  width: 400px;
+  height: 400px;
+}
+.swiper .swiper-wrapper .swiper-slide .banner {
+  width: 400px;
+  height: auto;
+}
+.swiper .swiper-button-next {
+  background-color: rgba(202, 202, 202, 0.514);
+  color: rgba(71, 71, 71, 0.938);
+  border-radius: 20px;
+}
+.swiper .swiper-button-next::after {
+  font-size: 15px;
+}
+.swiper .swiper-button-prev {
+  background-color: rgba(202, 202, 202, 0.514);
+  color: rgb(71, 71, 71);
+  border-radius: 20px;
+}
+.swiper .swiper-button-prev::after {
+  font-size: 15px;
+}
+
+@media (max-width: 767px) {
+  .swiper {
+    width: 300px;
+    height: 300px;
+  }
+}/*# sourceMappingURL=slider1.css.map */

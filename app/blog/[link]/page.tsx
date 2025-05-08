@@ -12,7 +12,8 @@ import { likePost, unlikePost } from '@/app/store/actions/postActions';
 import Booking from "@/app/tour/booking"
 import { getAuthCookie } from "@/utils/cookies"
 import Head from 'next/head';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 interface Post {
     id: number;
     title: string;

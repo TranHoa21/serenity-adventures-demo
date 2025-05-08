@@ -11,7 +11,8 @@ import Link from "next/link";
 import axiosInstance from "@/app/api/axiosInstance"
 import Cookies from 'js-cookie';
 import Head from 'next/head';
-require('dotenv').config();
+import dotenv from 'dotenv';
+dotenv.config();
 
 const Login = () => {
     const [email, setEmail] = useState('');
