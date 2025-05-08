@@ -57,6 +57,7 @@ const TourDetail = () => {
                 })
                 .catch(error => {
                     console.error('Lỗi khi lấy thông tin tour:', error);
+                    console.log("check err >>", error)
                     setLoading(false);
                 });
         } else {
